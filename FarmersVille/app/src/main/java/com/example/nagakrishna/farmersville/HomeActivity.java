@@ -41,13 +41,12 @@ public class HomeActivity extends AppCompatActivity {
         imageView7.setImageDrawable(getResources().getDrawable(R.drawable.places));
         imageView8.setImageDrawable(getResources().getDrawable(R.drawable.settings));
         imageView9.setImageDrawable(getResources().getDrawable(R.drawable.temp));
-
-
     }
 
 
     public void Weather(View v){
-
+        Intent weatherIntent = new Intent(this, Weather.class);
+        startActivity(weatherIntent);
     }
 
     public void MarketTrade(View v){

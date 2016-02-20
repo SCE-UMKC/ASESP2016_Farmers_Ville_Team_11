@@ -8,65 +8,131 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingLeft="10dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_gravity="right|top">
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Product"/>
+                android:text="Product"
+                android:id="@+id/txtProduct"
+                android:paddingTop="15dp"
+                android:width="120dp"
+                android:textSize="@dimen/fontsize"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/product"
+                android:layout_toRightOf="@id/txtProduct"
+                android:textSize="@dimen/fontsize"
+                android:maxLines="1"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Quantity"
+                android:paddingTop="20dp"
+                android:id="@+id/txtQuantity"
+                android:width="120dp"
+                android:textSize="@dimen/fontsize"/>
+
+
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/product"
-                android:layout_weight="2"/>
+                android:id="@+id/unitsValue"
+                android:layout_toRightOf="@id/txtQuantity"
+                android:width="180dp"
+                android:textSize="@dimen/fontsize"
+                android:maxLines="1"/>
 
-        </LinearLayout>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/units"
+                android:layout_toRightOf="@+id/unitsValue"
+                android:entries="@array/units"/>
 
-        <LinearLayout
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:id="@+id/txtDescription"
+                android:paddingTop="15dp"
+                android:width="120dp"
+                android:textSize="@dimen/fontsize"/>
+
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="Quantity"/>
+                android:id="@+id/descriptionValue"
+                android:layout_toRightOf="@id/txtDescription"
+                android:textSize="25dp"
+                android:maxLines="4"
+                android:maxLength="2000"/>
+        </RelativeLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:text="Image"
+                android:id="@+id/txtImage"
+                android:paddingTop="15dp"
+                android:width="120dp"
+                android:textSize="@dimen/fontsize"/>
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/unitsValue"
-                    android:layout_weight="1"/>
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:id="@+id/imageValue"
+                android:layout_toRightOf="@id/txtImage"
+                android:paddingTop="20dp"
+                android:maxHeight="200dp"
+                android:maxWidth="200dp"
+                android:scaleType="centerCrop"
+                />
 
-                <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/units" />
-                    <!--android:entries="@array/units"-->
+        </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="20dp">
 
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-
-
-
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Post"
+                android:id="@+id/btnSellerSubmit"/>
+        </RelativeLayout>
     </LinearLayout>
 
 </FrameLayout>

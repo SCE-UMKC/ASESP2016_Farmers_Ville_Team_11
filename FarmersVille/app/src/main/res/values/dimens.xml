@@ -5,4 +5,9 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="layout_height">150dp</dimen>
     <dimen name="custom_tab_layout_height">72dp</dimen>
+
+
+    <!--Text values-->
+    <dimen name="fontsize">20sp</dimen>
+    <dimen name="listwidth">80dp</dimen>
 </resources>
