@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_height="-1"
+    android:layout_width="-1"
+    android:orientation="1">
+
+    <RelativeLayout
+        android:layout_height="-2"
+        android:layout_width="-1">
+
+        <TextView
+            android:id="@id/txtDate"
+            android:layout_height="-2"
+            android:layout_width="-2"
+            android:text="Date"
+            android:textSize="@dimen/fontsize"
+            android:width="120dp" />
+
+        <TextView
+            android:id="@id/listDate"
+            android:layout_height="-2"
+            android:layout_toRightOf="@id/txtDate"
+            android:layout_width="-1"
+            android:maxLines="1"
+            android:textSize="@dimen/fontsize" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_height="-2"
+        android:layout_width="-1">
+
+        <TextView
+            android:id="@id/txtTemperature"
+            android:layout_height="-2"
+            android:layout_width="-2"
+            android:text="Temperature"
+            android:textSize="@dimen/fontsize"
+            android:width="120dp" />
+
+        <TextView
+            android:id="@id/listTemperature"
+            android:layout_height="-2"
+            android:layout_toRightOf="@id/txtTemperature"
+            android:layout_width="-1"
+            android:maxLines="1"
+            android:textSize="@dimen/fontsize" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_height="-2"
+        android:layout_width="-1">
+
+        <TextView
+            android:id="@id/txtDescription"
+            android:layout_height="-2"
+            android:layout_width="-2"
+            android:text="Description"
+            android:textSize="@dimen/fontsize"
+            android:width="120dp" />
+
+        <TextView
+            android:id="@id/listDescription"
+            android:layout_height="-2"
+            android:layout_toRightOf="@id/txtDescription"
+            android:layout_width="-1"
+            android:maxLines="1"
+            android:textSize="@dimen/fontsize" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_height="-2"
+        android:layout_width="-2"
+        android:orientation="0"
+
+    <LinearLayout
+        android:layout_height="-2"
+        android:layout_weight="1.0"
+        android:layout_width="-2"
+        android:orientation="1">
+
+        <RelativeLayout
+            android:layout_height="-2"
+            android:layout_width="-2">
+
+            <TextView
+                android:id="@id/txtMain"
+                android:layout_height="-2"
+                android:layout_width="-2"
+                android:text="Main"
+                android:textSize="@dimen/fontsize"
+                android:width="120dp" />
+
+            <TextView
+                android:id="@id/listMain"
+                android:layout_height="-2"
+                android:layout_toRightOf="@id/txtMain"
+                android:layout_width="-2"
+                android:maxLines="1"
+                android:textSize="@dimen/fontsize"
+                android:width="@dimen/listwidth" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_height="-2"
+            android:layout_width="-2">
+
+            <TextView
+                android:id="@id/txtPressure"
+                android:layout_height="-2"
+                android:layout_width="-2"
+                android:text="Pressure"
+                android:textSize="@dimen/fontsize"
+                android:width="120dp" />
+
+            <TextView
+                android:id="@id/listPressure"
+                android:layout_height="-2"
+                android:layout_toRightOf="@id/txtPressure"
+                android:layout_width="-2"
+                android:maxLines="1"
+                android:textSize="@dimen/fontsize"
+                android:width="@dimen/listwidth" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_height="-2"
+            android:layout_width="-2">
+
+            <TextView
+                android:id="@id/txtHumidity"
+                android:layout_height="-2"
+                android:layout_width="-2"
+                android:text="Humidity"
+                android:textSize="@dimen/fontsize"
+                android:width="120dp" />
+
+            <TextView
+                android:id="@id/listHumidity"
+                android:layout_height="-2"
+                android:layout_toRightOf="@id/txtHumidity"
+                android:layout_width="-2"
+                android:maxLines="1"
+                android:textSize="@dimen/fontsize"
+                android:width="@dimen/listwidth" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_height="-2"
+            android:layout_width="-2">
+
+            <TextView
+                android:id="@id/txtWindSpeed"
+                android:layout_height="-2"
+                android:layout_width="-2"
+                android:text="Wind Speed"
+                android:textSize="@dimen/fontsize"
+                android:width="120dp" />
+
+            <TextView
+                android:id="@id/listWindSpeed"
+                android:layout_height="-2"
+                android:layout_toRightOf="@id/txtWindSpeed"
+                android:layout_width="-2"
+                android:maxLines="1"
+                android:textSize="@dimen/fontsize"
+                android:width="@dimen/listwidth" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_height="-2"
+            android:layout_width="-2">
+
+            <TextView
+                android:id="@id/txtClouds"
+                android:layout_height="-2"
+                android:layout_width="-2"
+                android:text="Clouds"
+                android:textSize="@dimen/fontsize"
+                android:width="120dp" />
+
+            <TextView
+                android:id="@id/listClouds"
+                android:layout_height="-2"
+                android:layout_toRightOf="@id/txtClouds"
+                android:layout_width="-2"
+                android:maxLines="1"
+                android:textSize="@dimen/fontsize"
+                android:width="@dimen/listwidth" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="-2"
+        android:layout_weight="2.0"
+        android:layout_width="-2">
+
+        <ImageView
+            android:id="@id/imageViewIcon"
+            android:layout_height="-2"
+            android:layout_width="-2"
+            android:minHeight="150dp"
+            android:minWidth="150dp" />
+    </LinearLayout>
+</LinearLayout></LinearLayout>

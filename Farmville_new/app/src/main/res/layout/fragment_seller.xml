@@ -1,0 +1,126 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.nagakrishna.farmville_new.SellerFragment">
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="10dp">
+
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:id="@+id/txtProduct"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:paddingTop="15dp"
+                android:text="Product"
+                android:textSize="@dimen/fontsize"
+                android:width="120dp" />
+
+            <EditText
+                android:id="@+id/product"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/txtProduct"
+                android:layout_width="match_parent"
+                android:maxLines="1"
+                android:textSize="@dimen/fontsize" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:id="@+id/txtQuantity"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.0"
+                android:layout_width="wrap_content"
+                android:paddingTop="20dp"
+                android:text="Quantity"
+                android:textSize="@dimen/fontsize"
+                android:width="120dp" />
+
+            <EditText
+                android:id="@+id/unitsValue"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/txtQuantity"
+                android:layout_width="wrap_content"
+                android:maxLines="1"
+                android:textSize="@dimen/fontsize"
+                android:width="100dp" />
+
+            <Spinner
+                android:id="@+id/units"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/unitsValue"
+
+                android:layout_width="match_parent" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:id="@+id/txtDescription"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:paddingTop="15dp"
+                android:text="Description"
+                android:textSize="@dimen/fontsize"
+                android:width="120dp" />
+
+            <EditText
+                android:id="@+id/descriptionValue"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/txtDescription"
+                android:layout_width="match_parent"
+                android:maxLength="2000"
+                android:maxLines="4"
+                android:textSize="25dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:id="@+id/txtImage"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:paddingTop="15dp"
+                android:text="Image"
+                android:textSize="@dimen/fontsize"
+                android:width="120dp" />
+
+            <ImageView
+                android:id="@+id/imageValue"
+                android:layout_height="200dp"
+                android:layout_toRightOf="@id/txtImage"
+                android:layout_width="200dp"
+                android:maxHeight="200dp"
+                android:maxWidth="200dp"
+                android:paddingTop="20dp"
+                android:scaleType="centerCrop" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:paddingTop="20dp">
+
+            <Button
+                android:id="@+id/btnSellerSubmit"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Post" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</FrameLayout>

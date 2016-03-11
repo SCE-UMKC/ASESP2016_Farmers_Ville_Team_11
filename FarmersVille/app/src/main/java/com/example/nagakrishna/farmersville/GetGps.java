@@ -1,125 +1,93 @@
 package com.example.nagakrishna.farmersville;
 
-import android.Manifest;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 
-/**
- * Created by Naga Krishna on 12-02-2016.
- */
 public class GetGps implements LocationListener {
-
-    Context context;
-    boolean IsGpsEnabled = false;
-    boolean IsNetworkEnabled = false;
-    boolean CanGetLocation = false;
-
-    Location location;
-    double latitude, longitude;
-
     private static final long MIN_DISTANCE = 10;
-    private static final long MIN_TIME = 1000 * 60 * 1;
-
+    private static final long MIN_TIME = 60000;
+    boolean CanGetLocation;
+    boolean IsGpsEnabled;
+    boolean IsNetworkEnabled;
+    Context context;
+    double latitude;
+    Location location;
     private LocationManager locationManager;
+    double longitude;
 
     public GetGps(Context context) {
+        this.IsGpsEnabled = false;
+        this.IsNetworkEnabled = false;
+        this.CanGetLocation = false;
         this.context = context;
         GeoLocation();
     }
 
-    public double GetLatitude(){
-        if (location!=null){
-            latitude = location.getLatitude();
+    public double GetLatitude() {
+        if (this.location != null) {
+            this.latitude = this.location.getLatitude();
         }
-        return latitude;
+        return this.latitude;
     }
 
-    public double GetLongitude(){
-        if (location!=null){
-            longitude = location.getLongitude();
+    public double GetLongitude() {
+        if (this.location != null) {
+            this.longitude = this.location.getLongitude();
         }
-        return longitude;
+        return this.longitude;
     }
 
     public Location GeoLocation() {
         try {
-            locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
-
-            IsGpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-            IsNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-
-            if (!IsNetworkEnabled && !IsNetworkEnabled) {
-
-            } else {
+            this.locationManager = (LocationManager) this.context.getSystemService("location");
+            this.IsGpsEnabled = this.locationManager.isProviderEnabled("gps");
+            this.IsNetworkEnabled = this.locationManager.isProviderEnabled("network");
+            if (this.IsNetworkEnabled || this.IsNetworkEnabled) {
                 this.CanGetLocation = true;
-                if (IsNetworkEnabled) {
-                    locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_DISTANCE, MIN_TIME, this);
-                    if(locationManager!=null){
-                        location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-                        if (location!=null){
-                            latitude = location.getLatitude();
-                            longitude = location.getLongitude();
+                if (this.IsNetworkEnabled) {
+                    this.locationManager.requestLocationUpdates("network", MIN_DISTANCE, 60000.0f, this);
+                    if (this.locationManager != null) {
+                        this.location = this.locationManager.getLastKnownLocation("network");
+                        if (this.location != null) {
+                            this.latitude = this.location.getLatitude();
+                            this.longitude = this.location.getLongitude();
                         }
                     }
                 }
-
-                if (IsGpsEnabled) {
-                    if (location == null) {
-
-
-                        if (ActivityCompat.checkSelfPermission(this.context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this.context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                            // TODO: Consider calling
-                            //    ActivityCompat#requestPermissions
-                            // here to request the missing permissions, and then overriding
-                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                            //                                          int[] grantResults)
-                            // to handle the case where the user grants the permission. See the documentation
-                            // for ActivityCompat#requestPermissions for more details.
-
+                if (this.IsGpsEnabled && this.location == null) {
+                    if (ContextCompat.checkSelfPermission(this.context, "android.permission.ACCESS_FINE_LOCATION") == 0 || ContextCompat.checkSelfPermission(this.context, "android.permission.ACCESS_COARSE_LOCATION") == 0) {
+                        this.locationManager.requestLocationUpdates("gps", MIN_DISTANCE, 60000.0f, this);
+                    } else {
+                        this.locationManager.requestLocationUpdates("gps", MIN_DISTANCE, 60000.0f, this);
+                    }
+                    if (this.locationManager != null) {
+                        this.location = this.locationManager.getLastKnownLocation("gps");
+                        if (this.location != null) {
+                            this.latitude = this.location.getLatitude();
+                            this.longitude = this.location.getLongitude();
                         }
-                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_DISTANCE, MIN_TIME, this);
-                        if(locationManager!=null){
-                            location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                            if (location!=null){
-                                latitude = location.getLatitude();
-                                longitude = location.getLongitude();
-                            }
-                        }
-
                     }
                 }
-
-
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return location;
+        return this.location;
     }
 
-    @Override
     public void onLocationChanged(Location location) {
-
     }
 
-    @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
-
     }
 
-    @Override
     public void onProviderEnabled(String provider) {
-
     }
 
-    @Override
     public void onProviderDisabled(String provider) {
-
     }
 }

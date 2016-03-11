@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    app:fitsSystemWindows="true"
+    app:layout_height="-1"
+    app:layout_width="-1">
+
+    <android.support.design.widget.AppBarLayout
+        app:layout_height="-2"
+        app:layout_width="-1"
+        app:theme="@style/AppTheme_AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            app:background="?unknown_attr_ref: 7f0100e0"
+            app:id="@id/toolbar"
+            app:layout_height="?unknown_attr_ref: 7f0100a4"
+            app:layout_width="-1"
+            app:popupTheme="@style/AppTheme_PopupOverlay" />
+
+        <android.support.design.widget.TabLayout
+            app:id="@id/tabs"
+            app:layout_height="@dimen/custom_tab_layout_height"
+            app:layout_width="-1"
+            app:tabGravity="0"
+            app:tabMode="1" />
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        app:id="@id/viewpager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_height="-1"
+        app:layout_width="-1" />
+
+    <include layout="@layout/content_market_trade" />
+</android.support.design.widget.CoordinatorLayout>
