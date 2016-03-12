@@ -33,7 +33,7 @@ public class Weather extends AppCompatActivity {
         setContentView(R.layout.activity_weather);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        this.mContext = getBaseContext();
+//        this.mContext = getBaseContext();
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon((int) R.drawable.a01d);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -58,7 +58,7 @@ public class Weather extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        }).execute(new String[]{"http://api.openweathermap.org/data/2.5/forecast?lat=" + this.latitude + "&lon=" + this.longitude + "&appid=44db6a862fba0b067b1930da0d769e98"});
+        }).execute(new String[]{"http://api.openweathermap.org/data/2.5/forecast?lat=" + this.latitude + "&lon=" + this.longitude + "&appid=d0c4f73baa4bbd692bf152282ea0d999"});
     }
 
 //    @Override

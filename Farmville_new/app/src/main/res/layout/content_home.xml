@@ -60,7 +60,8 @@
             android:layout_height="150dp"
             android:scaleType="centerCrop"
             android:id="@+id/imageviewTAB5"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="MarketPrices" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -81,7 +82,8 @@
             android:layout_height="150dp"
             android:scaleType="centerCrop"
             android:id="@+id/imageviewTAB7"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="MarketPlaces" />
 
         <ImageView
             android:layout_width="wrap_content"

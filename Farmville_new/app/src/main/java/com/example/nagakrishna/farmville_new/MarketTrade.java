@@ -45,8 +45,8 @@ public class MarketTrade extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new SellerFragment(), "Seller");
         adapter.addFragment(new BuyerFragment(), "Buyer");
-        adapter.addFragment(new OneFragment(), "ONE");
-        adapter.addFragment(new TwoFragment(), "TWO");
+//        adapter.addFragment(new OneFragment(), "ONE");
+//        adapter.addFragment(new TwoFragment(), "TWO");
         viewPager.setAdapter(adapter);
     }
 

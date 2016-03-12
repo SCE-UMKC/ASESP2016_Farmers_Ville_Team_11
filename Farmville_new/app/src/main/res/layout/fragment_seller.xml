@@ -52,14 +52,14 @@
                 android:layout_width="wrap_content"
                 android:maxLines="1"
                 android:textSize="@dimen/fontsize"
-                android:width="100dp" />
+                android:width="300dp" />
 
-            <Spinner
-                android:id="@+id/units"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/unitsValue"
+            <!--<Spinner-->
+                <!--android:id="@+id/units"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_toRightOf="@id/unitsValue"-->
 
-                android:layout_width="match_parent" />
+                <!--android:layout_width="match_parent" />-->
         </RelativeLayout>
 
         <RelativeLayout

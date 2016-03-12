@@ -49,7 +49,6 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void Weather(View v) {
-        Intent intent = new Intent(this, Weather.class);
         startActivity(new Intent(this, Weather.class));
     }
 
@@ -64,12 +63,14 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void MarketPrices(View v) {
+        startActivity(new Intent(this, MongoActivity.class));
     }
 
     public void Suggestions(View v) {
     }
 
     public void MarketPlaces(View v) {
+        startActivity(new Intent(this, MarketLocations.class));
     }
 
     public void Settings(View v) {

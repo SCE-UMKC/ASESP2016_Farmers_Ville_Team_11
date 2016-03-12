@@ -12,4 +12,6 @@
         <item>Pounds</item>
         <item>Gallons</item>
     </string-array>
+    <string name="title_activity_market_locations">MarketLocations</string>
+    <string name="title_activity_mongo">MongoActivity</string>
 </resources>
