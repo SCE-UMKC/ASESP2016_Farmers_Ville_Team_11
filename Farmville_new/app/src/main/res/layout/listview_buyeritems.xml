@@ -2,68 +2,98 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    android:paddingLeft="10dp">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:textSize="@dimen/fontsize"
-            android:id="@+id/txtProductBuyer"
-            android:text="Date"
-            android:width="120dp"/>
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:layout_weight="3">
 
-        <TextView
-            android:id="@+id/listProductBuyer"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/txtProductBuyer"
-            android:layout_width="match_parent"
-            android:textSize="@dimen/fontsize" />
-    </RelativeLayout>
+       <RelativeLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+           <TextView
+               android:layout_height="wrap_content"
+               android:layout_width="wrap_content"
+               android:textSize="@dimen/fontsize"
+               android:id="@+id/txtProductBuyer"
+               android:text="Date"
+               android:width="120dp"/>
 
-        <TextView
-            android:id="@+id/txtQuantityBuyer"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="Quantity"
-            android:textSize="@dimen/fontsize"
-            android:width="120dp" />
+           <TextView
+               android:id="@+id/listProductBuyer"
+               android:layout_height="wrap_content"
+               android:layout_toRightOf="@id/txtProductBuyer"
+               android:layout_width="match_parent"
+               android:textSize="@dimen/fontsize" />
+       </RelativeLayout>
 
-        <TextView
-            android:id="@+id/listQuantityBuyer"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/txtQuantityBuyer"
-            android:layout_width="match_parent"
-            android:maxLines="1"
-            android:textSize="@dimen/fontsize" />
-    </RelativeLayout>
+       <RelativeLayout
+           android:layout_height="wrap_content"
+           android:layout_width="match_parent">
 
-    <RelativeLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+           <TextView
+               android:id="@+id/txtQuantityBuyer"
+               android:layout_height="wrap_content"
+               android:layout_width="wrap_content"
+               android:text="Quantity"
+               android:textSize="@dimen/fontsize"
+               android:width="120dp" />
 
-        <TextView
-            android:id="@+id/txtDescriptionBuyer"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="Description"
-            android:textSize="@dimen/fontsize"
-            android:width="120dp" />
+           <TextView
+               android:id="@+id/listQuantityBuyer"
+               android:layout_height="wrap_content"
+               android:layout_toRightOf="@id/txtQuantityBuyer"
+               android:layout_width="match_parent"
+               android:textSize="@dimen/fontsize" />
+       </RelativeLayout>
 
-        <TextView
-            android:id="@+id/listDescriptionBuyer"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/txtDescriptionBuyer"
-            android:layout_width="match_parent"
-            android:maxLines="1"
-            android:textSize="@dimen/fontsize" />
-    </RelativeLayout>
+       <RelativeLayout
+           android:layout_height="wrap_content"
+           android:layout_width="match_parent">
 
+           <TextView
+               android:id="@+id/txtDescriptionBuyer"
+               android:layout_height="wrap_content"
+               android:layout_width="wrap_content"
+               android:text="Description"
+               android:textSize="@dimen/fontsize"
+               android:width="120dp" />
+
+           <TextView
+               android:id="@+id/listDescriptionBuyer"
+               android:layout_height="wrap_content"
+               android:layout_toRightOf="@id/txtDescriptionBuyer"
+               android:layout_width="match_parent"
+               android:textSize="@dimen/fontsize" />
+       </RelativeLayout>
+
+   </LinearLayout>
+
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="2">
+
+       <RelativeLayout
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent">
+
+           <ImageView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/listImageViewBuyer"
+               android:src="@drawable/image_not_available"
+               android:scaleType="centerInside"
+               android:layout_alignParentTop="true"
+               android:maxHeight="100dp"
+               android:maxWidth="150dp"
+               android:minHeight="100dp"
+               android:minWidth="150dp" />
+       </RelativeLayout>
+   </LinearLayout>
 </LinearLayout>

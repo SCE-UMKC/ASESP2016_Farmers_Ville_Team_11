@@ -52,7 +52,7 @@ public class QueryBuilder {
 
     public String documentRequest()
     {
-        return "Seller";
+        return "temp";
     }
 
     /**
@@ -91,9 +91,10 @@ public class QueryBuilder {
 //                                + "\"Quantity\": \"%s\", \"Description\": \"%s\"}, \"safe\" : true}",
 //                        contact.product, contact.quantity, contact.description);
 
+
         return String
                 .format("{\"Product\": \"%s\", "
-                                + "\"Quantity\": \"%s\", \"Description\": \"%s\"}",
-                        contact.product, contact.quantity, contact.description);
+                                + "\"Quantity\": \"%s\", \"Description\": \"%s\", \"Image\": \"%s\"}",
+                        contact.product, contact.quantity, contact.description, contact.imageEncoderValue);
     }
 }

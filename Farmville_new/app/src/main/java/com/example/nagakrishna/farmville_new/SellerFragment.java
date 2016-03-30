@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ import com.mongodb.MongoClientURI;
 
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.net.UnknownHostException;
 import java.util.Set;
 
@@ -37,6 +39,7 @@ public class SellerFragment extends Fragment  implements OnClickListener, Adapte
     EditText productName;
     EditText quantity;
     EditText description;
+    private String myBase64Image;
 
     static {
         TAKE_PHOTO_CODE = 1;
@@ -74,6 +77,14 @@ public class SellerFragment extends Fragment  implements OnClickListener, Adapte
 
     }
 
+    /* Converting image to Base64 String*/
+    public static String encodeToBase64(Bitmap image, Bitmap.CompressFormat compressFormat, int quality)
+    {
+        ByteArrayOutputStream byteArrayOS = new ByteArrayOutputStream();
+        image.compress(compressFormat, quality, byteArrayOS);
+        return Base64.encodeToString(byteArrayOS.toByteArray(), Base64.DEFAULT);
+    }
+
     public void CameraImage(View view) {
         startActivityForResult(new Intent("android.media.action.IMAGE_CAPTURE"), TAKE_PHOTO_CODE);
     }
@@ -88,6 +99,13 @@ public class SellerFragment extends Fragment  implements OnClickListener, Adapte
         contact.product = productName.getText().toString();
         contact.quantity = quantity.getText().toString();
         contact.description = description.getText().toString();
+        try{
+            //String myBase64Image = encodeToBase64(photo, Bitmap.CompressFormat.JPEG, 100);
+            contact.imageEncoderValue = myBase64Image;
+        }
+        catch (Exception e){
+          Log.v("fin", e.getMessage().toString());
+        }
 
 
         MongoAsyncTask tsk = new MongoAsyncTask();
@@ -100,6 +118,7 @@ public class SellerFragment extends Fragment  implements OnClickListener, Adapte
         if (requestCode == TAKE_PHOTO_CODE) {
             this.photo = (Bitmap) data.getExtras().get("data");
             this.sellerProductImage.setImageBitmap(this.photo);
+            myBase64Image = encodeToBase64(photo, Bitmap.CompressFormat.JPEG, 100);
             Log.d("CameraDemo", "Pic saved");
         }
     }

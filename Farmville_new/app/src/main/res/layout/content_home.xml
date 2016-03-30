@@ -39,7 +39,9 @@
             android:layout_height="150dp"
             android:scaleType="centerCrop"
             android:id="@+id/imageviewTAB3"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:nestedScrollingEnabled="false"
+            android:onClick="News" />
 
     </LinearLayout>
 

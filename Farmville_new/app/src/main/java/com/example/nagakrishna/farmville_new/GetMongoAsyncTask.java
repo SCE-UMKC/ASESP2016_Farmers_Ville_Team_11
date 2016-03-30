@@ -22,6 +22,13 @@ public class GetMongoAsyncTask extends AsyncTask<SellerDetails, Void, ArrayList<
     static String temp_output = null;
 
     @Override
+    protected void onPostExecute(ArrayList<SellerDetails> sellerDetailses) {
+        super.onPostExecute(sellerDetailses);
+
+
+    }
+
+    @Override
     protected ArrayList<SellerDetails> doInBackground(SellerDetails... arg0) {
 
         ArrayList<SellerDetails> mycontacts = new ArrayList<SellerDetails>();
@@ -64,6 +71,7 @@ public class GetMongoAsyncTask extends AsyncTask<SellerDetails, Void, ArrayList<
                 temp.setProduct(userObj.get("Product").toString());
                 temp.setQuantity(userObj.get("Quantity").toString());
                 temp.setDescription(userObj.get("Description").toString());
+                temp.setImageEncoderValue(userObj.get("Image").toString());
                 mycontacts.add(temp);
 
             }

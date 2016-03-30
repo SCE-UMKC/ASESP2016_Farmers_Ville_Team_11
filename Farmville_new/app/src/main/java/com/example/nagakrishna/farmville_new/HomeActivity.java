@@ -57,6 +57,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void News(View v) {
+        startActivity(new Intent(this, NewsActivity.class));
     }
 
     public void Journal(View v) {
