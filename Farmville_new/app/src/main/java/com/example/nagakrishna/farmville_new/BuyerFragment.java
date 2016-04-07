@@ -137,7 +137,7 @@ public class BuyerFragment extends Fragment {
             TextView desciption;
             ImageView imageView;
         }
-
+//
         public View.OnClickListener mOnTitleClickListener_image = new View.OnClickListener() {
             public void onClick(View v) {
 
