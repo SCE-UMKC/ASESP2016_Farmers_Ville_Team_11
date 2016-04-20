@@ -16,4 +16,6 @@
     <string name="title_activity_mongo">MongoActivity</string>
     <string name="title_activity_news">NewsActivity</string>
     <string name="title_activity_suggestions">Suggestions</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_registration">Registration</string>
 </resources>
