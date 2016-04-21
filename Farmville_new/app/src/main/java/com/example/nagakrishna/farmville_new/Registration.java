@@ -26,6 +26,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Registration extends AppCompatActivity {
 
@@ -34,6 +36,7 @@ public class Registration extends AppCompatActivity {
     private EditText numberText;
     private EditText passwordText, cpasswordText;
     private Button signupButton;
+    private String Datetime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +50,10 @@ public class Registration extends AppCompatActivity {
         passwordText = (EditText)findViewById(R.id.input_password);
         cpasswordText = (EditText)findViewById(R.id.input_cpassword);
         signupButton = (Button)findViewById(R.id.btn_signup);
+
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat dateformat = new SimpleDateFormat("dd-MMM-yyyy hh:mm:ss aa");
+        Datetime = dateformat.format(c.getTime());
 
     }
 
@@ -67,6 +74,7 @@ public class Registration extends AppCompatActivity {
                 jsonObject.put("password", password);
                 jsonObject.put("number", number);
                 jsonObject.put("fullname", name);
+                jsonObject.put("created", Datetime);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -150,7 +158,7 @@ class SendData extends AsyncTask<String, String, String>{
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
         try {
-            URL url = new URL("http://farmvillenew.wymuaipgr8.us-west-2.elasticbeanstalk.com/restService/user");
+            URL url = new URL("http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com//restService/user");
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setDoOutput(true);
             // is output buffer writter

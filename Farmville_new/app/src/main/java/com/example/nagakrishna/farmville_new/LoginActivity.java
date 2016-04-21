@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
 //        progressDialog.show(LoginActivity.this, "Authenticating....", "Please Wait");
 
 
-        String url = "http://farmvillenew.wymuaipgr8.us-west-2.elasticbeanstalk.com/restService/user?email=" +
+        String url = "http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com//restService/user?email=" +
                 emailText.getText().toString()+ "&password=" + passwordText.getText().toString();
         new CallLogin(new LoginServiceListener() {
             @Override

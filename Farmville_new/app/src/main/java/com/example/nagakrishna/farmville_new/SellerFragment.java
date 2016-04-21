@@ -1,6 +1,7 @@
 package com.example.nagakrishna.farmville_new;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
@@ -31,6 +33,7 @@ import java.util.Set;
 
 
 public class SellerFragment extends Fragment  implements OnClickListener, AdapterView.OnItemSelectedListener {
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
     private static int TAKE_PHOTO_CODE;
     Bitmap photo;
     ImageView sellerProductImage;
@@ -99,6 +102,11 @@ public class SellerFragment extends Fragment  implements OnClickListener, Adapte
         contact.product = productName.getText().toString();
         contact.quantity = quantity.getText().toString();
         contact.description = description.getText().toString();
+
+        //retrieving data from shared preference
+        SharedPreferences prefs = this.getActivity().getSharedPreferences(MY_PREFS_NAME, 0);
+        String email = prefs.getString("email", null);
+        contact.email = email;
         try{
             //String myBase64Image = encodeToBase64(photo, Bitmap.CompressFormat.JPEG, 100);
             contact.imageEncoderValue = myBase64Image;
@@ -110,6 +118,7 @@ public class SellerFragment extends Fragment  implements OnClickListener, Adapte
 
         MongoAsyncTask tsk = new MongoAsyncTask();
         tsk.execute(contact);
+        Toast.makeText(this.getContext(), "Posted Successfully", Toast.LENGTH_SHORT).show();
 
     }
 

@@ -1,6 +1,8 @@
 package com.example.nagakrishna.farmville_new;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -32,6 +34,7 @@ import java.util.concurrent.ExecutionException;
  */
 public class BuyerFragment extends Fragment {
 
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
     ArrayList<SellerDetails> returnValues = new ArrayList<SellerDetails>();
     List<SellerDetails> itemlist = new ArrayList();
 //    ArrayList<String> listItems = new ArrayList<String>();
@@ -46,9 +49,11 @@ public class BuyerFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_buyer, container, false);
+        SharedPreferences prefs = this.getActivity().getSharedPreferences(MY_PREFS_NAME, 0);
+        String email = prefs.getString("email", null);
         GetMongoAsyncTask task = new GetMongoAsyncTask();
         try {
-            returnValues = task.execute().get();
+            returnValues = task.execute(email).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -126,6 +131,10 @@ public class BuyerFragment extends Fragment {
             }
 
             holder.imageView.setOnClickListener(mOnTitleClickListener_image);
+            holder.product.setOnClickListener(detailsListener);
+            holder.quanity.setOnClickListener(detailsListener);
+            holder.desciption.setOnClickListener(detailsListener);
+
 
             return convertView;
         }
@@ -151,6 +160,17 @@ public class BuyerFragment extends Fragment {
                 toastView.setGravity(Gravity.FILL, 0, 0);
                 toastView.show();
 
+            }
+        };
+
+        public View.OnClickListener detailsListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final int position = listView.getPositionForView((View) v.getParent());
+                SellerDetails sd = sellerDetails.get(position);
+                Intent intent = new Intent(v.getContext(), SellersDetails.class);
+                intent.putExtra("SellerEmail", sd.getEmail());
+                startActivity(intent);
             }
         };
     }

@@ -1,6 +1,7 @@
 package com.example.nagakrishna.farmville_new;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 
 public class HomeActivity extends AppCompatActivity {
 
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
     private ImageView imageView1;
     private ImageView imageView2;
     private ImageView imageView3;
@@ -46,6 +48,9 @@ public class HomeActivity extends AppCompatActivity {
         this.imageView9.setImageDrawable(getResources().getDrawable(R.drawable.temp));
 
 
+        //retrieving data from shared preference
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        String email = prefs.getString("email", null);
     }
 
     public void Weather(View v) {

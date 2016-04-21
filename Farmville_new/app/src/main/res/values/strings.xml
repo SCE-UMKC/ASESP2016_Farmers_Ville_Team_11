@@ -18,4 +18,5 @@
     <string name="title_activity_suggestions">Suggestions</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_registration">Registration</string>
+    <string name="title_activity_sellers_details">SellersDetails</string>
 </resources>

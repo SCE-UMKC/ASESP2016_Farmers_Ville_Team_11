@@ -10,13 +10,21 @@ import android.widget.ImageView;
  */
 public class SellerDetails {
 
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
     public String product;
     public String doc_id;
     public String quantity;
     public String description;
     public String imageEncoderValue;
+    public String email;
 
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getDoc_id() {
         return doc_id;

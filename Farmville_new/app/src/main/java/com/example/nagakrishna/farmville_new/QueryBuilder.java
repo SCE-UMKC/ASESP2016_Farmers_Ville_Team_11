@@ -94,7 +94,7 @@ public class QueryBuilder {
 
         return String
                 .format("{\"Product\": \"%s\", "
-                                + "\"Quantity\": \"%s\", \"Description\": \"%s\", \"Image\": \"%s\"}",
-                        contact.product, contact.quantity, contact.description, contact.imageEncoderValue);
+                                + "\"Quantity\": \"%s\", \"Description\": \"%s\", \"Image\": \"%s\", \"email\": \"%s\"}",
+                        contact.product, contact.quantity, contact.description, contact.imageEncoderValue, contact.email);
     }
 }
