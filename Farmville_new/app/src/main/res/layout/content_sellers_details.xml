@@ -13,22 +13,74 @@
     tools:showIn="@layout/activity_sellers_details"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/valueText"
-        android:paddingBottom="20px"/>
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/valueText2"
-        android:paddingBottom="20px"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/valueText3"
-        android:paddingBottom="20px"/>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/fontsize"
+                android:id="@+id/txtFullname"
+                android:text="Name"
+                android:width="120dp"/>
+
+            <TextView
+                android:id="@+id/txtFullnameValue"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/txtFullname"
+                android:layout_width="match_parent"
+                android:textSize="@dimen/fontsize" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:id="@+id/txtNumber"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Number"
+                android:textSize="@dimen/fontsize"
+                android:width="120dp" />
+
+            <TextView
+                android:id="@+id/txtNumberValue"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/txtNumber"
+                android:layout_width="match_parent"
+                android:textSize="@dimen/fontsize"
+                android:clickable="true"
+                android:onClick="CallNumberIntent" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:id="@+id/txtAddress"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Address"
+                android:textSize="@dimen/fontsize"
+                android:width="120dp" />
+
+            <TextView
+                android:id="@+id/txtAddressValue"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/txtAddress"
+                android:layout_width="match_parent"
+                android:textSize="@dimen/fontsize"
+                android:onClick="StartMapsIntent" />
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

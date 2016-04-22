@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
@@ -35,14 +36,26 @@ public class Weather extends AppCompatActivity {
         setSupportActionBar(toolbar);
 //        this.mContext = getBaseContext();
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon((int) R.drawable.a01d);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
+//        getSupportActionBar().setIcon((int) R.drawable.a01d);
+//        getSupportActionBar().setHomeButtonEnabled(true);
+//        getSupportActionBar().setDisplayUseLogoEnabled(true);
         GetGps getGps = new GetGps(getApplicationContext());
         this.latitude = getGps.GetLatitude();
         this.longitude = getGps.GetLongitude();
         ButtonClick();
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem)
+    {
+        switch (menuItem.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(menuItem);
+        }
     }
 
     public void ButtonClick() {

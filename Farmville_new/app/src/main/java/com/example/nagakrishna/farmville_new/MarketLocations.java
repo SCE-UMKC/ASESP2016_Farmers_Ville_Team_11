@@ -1,12 +1,15 @@
 package com.example.nagakrishna.farmville_new;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -36,13 +39,25 @@ public class MarketLocations extends AppCompatActivity {
         setContentView(R.layout.activity_market_locations);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         GetGps getGps = new GetGps(getApplicationContext());
         this.latitude = getGps.GetLatitude();
         this.longitude = getGps.GetLongitude();
         OnButtnClick();
     }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem)
+    {
+        switch (menuItem.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(menuItem);
+        }
+    }
 
     public void OnButtnClick(){
 

@@ -66,6 +66,8 @@ public class NewsActivity extends AppCompatActivity {
 
     }
 
+
+
     public class JSONTask extends AsyncTask<String,String,List<NewsModel> >{
 
         @Override

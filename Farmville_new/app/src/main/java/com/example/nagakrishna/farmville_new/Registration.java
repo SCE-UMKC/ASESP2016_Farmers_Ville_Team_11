@@ -75,6 +75,7 @@ public class Registration extends AppCompatActivity {
                 jsonObject.put("number", number);
                 jsonObject.put("fullname", name);
                 jsonObject.put("created", Datetime);
+                jsonObject.put("address", "no address");
             } catch (JSONException e) {
                 e.printStackTrace();
             }

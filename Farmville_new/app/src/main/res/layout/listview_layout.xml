@@ -37,7 +37,7 @@
             android:width="120dp" />
 
         <TextView
-            android:id="@+id/listmarketid"
+            android:id="@+id/listAddress"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/txtAddress"
             android:layout_width="match_parent"

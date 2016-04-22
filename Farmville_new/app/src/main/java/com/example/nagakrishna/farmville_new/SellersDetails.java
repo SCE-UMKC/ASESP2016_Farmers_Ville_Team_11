@@ -1,11 +1,17 @@
 package com.example.nagakrishna.farmville_new;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -27,9 +33,10 @@ import java.util.concurrent.ExecutionException;
 
 public class SellersDetails extends AppCompatActivity {
 
-    private TextView valueText, valueText2, valueText3;
+    private TextView nameText, numberText, addressText;
     private String returnValues;
     private String fullname, address, number, reviews;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,12 +46,11 @@ public class SellersDetails extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        valueText = (TextView)findViewById(R.id.valueText);
-        valueText2 = (TextView)findViewById(R.id.valueText2);
-        valueText3 = (TextView)findViewById(R.id.valueText3);
+        nameText = (TextView) findViewById(R.id.txtFullnameValue);
+        numberText = (TextView) findViewById(R.id.txtNumberValue);
+        addressText = (TextView) findViewById(R.id.txtAddressValue);
         Bundle bundle = getIntent().getExtras();
         String email = bundle.getString("SellerEmail");
-//        valueText.setText(foo);
 
 
         GetSellerDetails task = new GetSellerDetails();
@@ -53,17 +59,11 @@ public class SellersDetails extends AppCompatActivity {
             JSONArray jsonArray = new JSONArray(returnValues);
             JSONObject jsonObject = jsonArray.getJSONObject(0);
             fullname = jsonObject.getString("fullname");
-            if(jsonObject.getString("address")!=null){
-                address = jsonObject.getString("address");
-            }
-            else{
-                address = null;
-            }
-
+            address = jsonObject.getString("address");
             number = jsonObject.getString("number");
-            valueText.setText(fullname);
-            valueText2.setText(number);
-            valueText3.setText(address);
+            nameText.setText(fullname);
+            numberText.setText(number);
+            addressText.setText(address);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -72,6 +72,44 @@ public class SellersDetails extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+
+    public void CallNumberIntent(View v) {
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:+" + numberText.getText().toString().trim()));
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        startActivity(callIntent);
+    }
+
+    public void StartMapsIntent(View v){
+        Intent geoIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q="
+                +addressText.getText().toString()));
+        startActivity(geoIntent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem)
+    {
+        switch (menuItem.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(menuItem);
+        }
+    }
+
+
+
 }
 
 class GetSellerDetails extends AsyncTask<String, String, String>{
