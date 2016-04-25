@@ -1,5 +1,6 @@
 package com.example.nagakrishna.farmville_new;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -76,12 +77,13 @@ public class Registration extends AppCompatActivity {
                 jsonObject.put("fullname", name);
                 jsonObject.put("created", Datetime);
                 jsonObject.put("address", "no address");
+                jsonObject.put("image", "null");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
             if(jsonObject.length()>0){
-                new SendData().execute(String.valueOf(jsonObject));
+                new SendData(getBaseContext()).execute(String.valueOf(jsonObject));
                 onSignupSuccess();
             }
 
@@ -152,6 +154,11 @@ public class Registration extends AppCompatActivity {
 
 class SendData extends AsyncTask<String, String, String>{
 
+    Context context;
+    public SendData(Context context){
+        this.context = context;
+    }
+
     @Override
     protected String doInBackground(String... params) {
         String JsonResponse = null;
@@ -159,20 +166,20 @@ class SendData extends AsyncTask<String, String, String>{
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
         try {
-            URL url = new URL("http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com//restService/user");
+
+//            URL url = new URL("http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com//restService/user");
+            String urlnew = context.getResources().getString(R.string.registration);
+            URL url = new URL(urlnew);
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setDoOutput(true);
             // is output buffer writter
             urlConnection.setRequestMethod("POST");
             urlConnection.setRequestProperty("Content-Type", "application/json");
             urlConnection.setRequestProperty("Accept", "application/json");
-//set headers and method
             Writer writer = new BufferedWriter(new OutputStreamWriter(urlConnection.getOutputStream(), "UTF-8"));
             writer.write(JsonDATA);
-// json data
             writer.close();
             InputStream inputStream = urlConnection.getInputStream();
-//input stream
 
             } catch (MalformedURLException e) {
             e.printStackTrace();

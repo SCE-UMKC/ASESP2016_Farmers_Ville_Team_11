@@ -1,5 +1,8 @@
 package com.example.nagakrishna.farmville_new;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  * Created by Naga Krishna on 11-03-2016.
  */
@@ -91,10 +94,12 @@ public class QueryBuilder {
 //                                + "\"Quantity\": \"%s\", \"Description\": \"%s\"}, \"safe\" : true}",
 //                        contact.product, contact.quantity, contact.description);
 
-
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat dateformat = new SimpleDateFormat("dd-MMM-yyyy hh:mm:ss aa");
+        String Datetime = dateformat.format(c.getTime());
         return String
                 .format("{\"Product\": \"%s\", "
-                                + "\"Quantity\": \"%s\", \"Description\": \"%s\", \"Image\": \"%s\", \"email\": \"%s\"}",
-                        contact.product, contact.quantity, contact.description, contact.imageEncoderValue, contact.email);
+                                + "\"Quantity\": \"%s\", \"Description\": \"%s\", \"Image\": \"%s\", \"email\": \"%s\", \"created\": \"%s\"}",
+                        contact.product, contact.quantity, contact.description, contact.imageEncoderValue, contact.email, Datetime);
     }
 }

@@ -29,6 +29,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.concurrent.ExecutionException;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -39,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
     private String nameUser;
     private String emailUser;
+    private String imageUser;
 //    private ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,15 +78,11 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,
-                R.style.AppTheme_AppBarOverlay);
+                R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Authenticating...");
         progressDialog.show();
-//        progressDialog.show(LoginActivity.this, "Authenticating....", "Please Wait");
-
-
-        String url = "http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com//restService/user?email=" +
-                emailText.getText().toString()+ "&password=" + passwordText.getText().toString();
+        final String url = getResources().getString(R.string.loginCheck) + emailText.getText().toString()+ "&password=" + passwordText.getText().toString();
         new CallLogin(new LoginServiceListener() {
             @Override
             public void servicesuccess(String str) {
@@ -99,6 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                         JSONObject jsonObject = jsonArray.getJSONObject(0);
                         nameUser = jsonObject.getString("fullname");
                         emailUser = jsonObject.getString("email");
+                        imageUser = jsonObject.getString("image");
                         Log.i(TAG, nameUser);
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -106,14 +105,13 @@ public class LoginActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
                     editor.putString("name", nameUser);
                     editor.putString("email", emailUser);
+                    editor.putString("image", imageUser);
                     editor.commit();
                     onLoginSuccess();
-                    startActivity(new Intent(view.getContext(), HomeActivity.class));
+                    startActivity(new Intent(view.getContext(), NavigationActvity.class));
                 }
             }
         }).execute(url);
-
-
     }
 
     public void onLoginSuccess() {

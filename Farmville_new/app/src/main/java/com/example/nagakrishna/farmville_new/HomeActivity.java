@@ -1,5 +1,6 @@
 package com.example.nagakrishna.farmville_new;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,6 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+
+import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -53,33 +57,59 @@ public class HomeActivity extends AppCompatActivity {
         String email = prefs.getString("email", null);
     }
 
-    public void Weather(View v) {
-        startActivity(new Intent(this, Weather.class));
-    }
-
-    public void MarketTrade(View v) {
-        startActivity(new Intent(this, MarketTrade.class));
-    }
-
-    public void News(View v) {
-        startActivity(new Intent(this, NewsActivity.class));
-    }
-
-    public void Journal(View v) {
-    }
-
-    public void MarketPrices(View v) {
-        startActivity(new Intent(this, MongoActivity.class));
-    }
-
-    public void Suggestions(View v) {
-    }
-
-    public void MarketPlaces(View v) {
-        startActivity(new Intent(this, MarketLocations.class));
-    }
-
-    public void Settings(View v) {
-    }
+//    public void Weather(View v) {
+//        startActivity(new Intent(this, Weather.class));
+//    }
+//
+//    public void MarketTrade(View v) {
+//        startActivity(new Intent(this, MarketTrade.class));
+//    }
+//
+//    public void News(View v) {
+//        startActivity(new Intent(this, NewsActivity.class));
+//    }
+//
+//    public void Journal(View v) {
+//    }
+//
+//    public void MarketPrices(View v) {
+//        startActivity(new Intent(this, MongoActivity.class));
+//    }
+//
+//    public void Suggestions(View v) {
+//    }
+//
+//    public void MarketPlaces(View v) {
+//        startActivity(new Intent(this, MarketLocations.class));
+//    }
+//
+//    public void Settings(View v) {
+//        final ProgressDialog progressDialog = new ProgressDialog(HomeActivity.this,
+//                R.style.AppTheme_Dark_Dialog);
+//        progressDialog.setIndeterminate(true);
+//        progressDialog.setMessage("Authenticating...");
+//        progressDialog.show();
+//        ArrayList<SellerDetails> returnValues = new ArrayList<SellerDetails>();
+//        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, 0);
+//        String email = prefs.getString("email", null);
+//        GetSellerPost task = new GetSellerPost(getBaseContext());
+//        try {
+//            returnValues = task.execute(email).get();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        }
+//        Intent intent = new Intent(this, temp.class);
+//        intent.putParcelableArrayListExtra("FILES_TO_SEND", returnValues);
+//        progressDialog.dismiss();
+//        intent.putExtra("FILES_TO_SEND", returnValues);
+//        startActivity(intent);
+////        startActivity(new Intent(this, temp.class));
+//    }
+//
+//    public void Posts(View v){
+//        startActivity(new Intent(this, Posts.class));
+//    }
 
 }

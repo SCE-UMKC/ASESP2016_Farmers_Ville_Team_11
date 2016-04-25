@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingTop="60dp">
+
+
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:id="@+id/txtProductEditPost"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:paddingTop="15dp"
+            android:text="Product"
+            android:textSize="@dimen/fontsize"
+            android:width="120dp" />
+
+        <EditText
+            android:id="@+id/listProductEditPost"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/txtProductEditPost"
+            android:layout_width="match_parent"
+            android:maxLines="1"
+            android:textSize="@dimen/fontsize" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:id="@+id/txtQuantityEditPost"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.0"
+            android:layout_width="wrap_content"
+            android:paddingTop="20dp"
+            android:text="Quantity"
+            android:textSize="@dimen/fontsize"
+            android:width="120dp" />
+
+        <EditText
+            android:id="@+id/listQuantityEditPost"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/txtQuantityEditPost"
+            android:layout_width="wrap_content"
+            android:maxLines="1"
+            android:textSize="@dimen/fontsize"
+            android:width="300dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:id="@+id/txtDescriptionEditPost"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:paddingTop="15dp"
+            android:text="Description"
+            android:textSize="@dimen/fontsize"
+            android:width="120dp" />
+
+        <EditText
+            android:id="@+id/listDescriptionEditPost"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/txtDescriptionEditPost"
+            android:layout_width="match_parent"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:id="@+id/txtImageEditPost"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:paddingTop="15dp"
+            android:text="Image"
+            android:textSize="@dimen/fontsize"
+            android:width="120dp" />
+
+        <ImageView
+            android:id="@+id/listImageViewEditPost"
+            android:layout_height="200dp"
+            android:layout_toRightOf="@id/txtImageEditPost"
+            android:layout_width="200dp"
+            android:maxHeight="200dp"
+            android:maxWidth="200dp"
+            android:paddingTop="20dp"
+            android:scaleType="centerCrop"
+            android:onClick="CameraImageEditPost" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:paddingTop="20dp">
+
+        <Button
+        android:id="@+id/btnUpdateEditPost"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Update"
+        android:nestedScrollingEnabled="true"
+            android:onClick="UpdateData" />
+    </RelativeLayout>
+</LinearLayout>

@@ -3,7 +3,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_activity_weather">Weather</string>
-    <string name="title_activity_market_trade">MarketTrade</string>
+    <string name="title_activity_market_trade">Market Trade</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -12,11 +12,48 @@
         <item>Pounds</item>
         <item>Gallons</item>
     </string-array>
-    <string name="title_activity_market_locations">MarketLocations</string>
+    <string name="title_activity_market_locations">Market Locations</string>
     <string name="title_activity_mongo">MongoActivity</string>
-    <string name="title_activity_news">NewsActivity</string>
+    <string name="title_activity_news">News</string>
     <string name="title_activity_suggestions">Suggestions</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_registration">Registration</string>
     <string name="title_activity_sellers_details">SellersDetails</string>
+    <string name="title_activity_posts">Posts</string>
+    <string name="title_activity_temp">temp</string>
+    <string name="title_activity_edit_posts">EditPosts</string>
+
+
+    <!--<string name="loginCheck">http://farmvillenew-1.s8h8thyfmy.us-west-2.elasticbeanstalk.com/restService/user?email=</string>-->
+    <string name="loginCheck">http://192.168.0.9:8085/MongoRestServiceExample/restService/user?email=</string>
+    <!--<string name="registration">http://farmvillenew-1.s8h8thyfmy.us-west-2.elasticbeanstalk.com/restService/user</string>-->
+    <string name="registration">http://192.168.0.9:8085/MongoRestServiceExample/restService/user</string>
+    <string name="sellerposts">http://farmvillenew-1.s8h8thyfmy.us-west-2.elasticbeanstalk.com/sellerDetails/SellerDetails?email=</string>
+    <string name="sellerDetails">http://farmvillenew-1.s8h8thyfmy.us-west-2.elasticbeanstalk.com/emailcheck/EmailCheck?email=</string>
+    <!--<string name="editPost">http://farmvillenew-1.s8h8thyfmy.us-west-2.elasticbeanstalk.com/editPosts/EditPosts?created=</string>-->
+    <!--<string name="editPost">http://192.168.0.9:8085/MongoRestServiceExample/editPosts/EditPosts?created=</string>-->
+    <string name="editPost">http://192.168.0.9:8085/MongoRestServiceExample/editPosts/EditPosts</string>
+    <!--<string name="editPost">http://farm.ffq6pzmsmr.us-west-2.elasticbeanstalk.com/editPosts/EditPosts?created=</string>-->
+    <!--<string name="deletePost">http://farmvillenew-1.s8h8thyfmy.us-west-2.elasticbeanstalk.com/deletePost/DeletePost?created=</string>-->
+    <string name="deletePost">http://192.168.0.9:8085/MongoRestServiceExample/deletePost/DeletePost</string>
+    <string name="IndividualSellerPosts">http://farmvillenew-1.s8h8thyfmy.us-west-2.elasticbeanstalk.com/sellerPostDetails/SellerPostDetails?email=</string>
+    <string name="title_activity_login_activity_temp">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_navigation_actvity">NavigationActvity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_account">Account</string>
 </resources>

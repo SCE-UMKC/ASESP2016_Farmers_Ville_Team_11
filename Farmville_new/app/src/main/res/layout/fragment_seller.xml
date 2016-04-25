@@ -119,7 +119,8 @@
                 android:id="@+id/btnSellerSubmit"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="Post" />
+                android:text="Post"
+                android:nestedScrollingEnabled="true" />
         </RelativeLayout>
     </LinearLayout>
 

@@ -51,7 +51,7 @@ public class BuyerFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_buyer, container, false);
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MY_PREFS_NAME, 0);
         String email = prefs.getString("email", null);
-        GetMongoAsyncTask task = new GetMongoAsyncTask();
+        GetMongoAsyncTask task = new GetMongoAsyncTask(view.getContext());
         try {
             returnValues = task.execute(email).get();
         } catch (InterruptedException e) {

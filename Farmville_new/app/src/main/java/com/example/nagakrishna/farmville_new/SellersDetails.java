@@ -1,6 +1,7 @@
 package com.example.nagakrishna.farmville_new;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -53,7 +54,7 @@ public class SellersDetails extends AppCompatActivity {
         String email = bundle.getString("SellerEmail");
 
 
-        GetSellerDetails task = new GetSellerDetails();
+        GetSellerDetails task = new GetSellerDetails(getBaseContext());
         try {
             returnValues = task.execute(email).get();
             JSONArray jsonArray = new JSONArray(returnValues);
@@ -117,10 +118,18 @@ class GetSellerDetails extends AsyncTask<String, String, String>{
     static String server_output = null;
     static String temp_output = null;
     StringBuilder result = null;
+    Context context;
+
+    public GetSellerDetails(Context context){
+        this.context = context;
+    }
+
     @Override
     protected String doInBackground(String... params) {
         String email = params[0];
-        String urlNew = "http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com/emailcheck/EmailCheck?email=" + email;
+//        String urlNew = "http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com/emailcheck/EmailCheck?email=" + email;
+        String url1 = context.getResources().getString(R.string.sellerDetails);
+        String urlNew = url1 + email;
         try {
             URL url = new URL(urlNew);
 

@@ -1,5 +1,6 @@
 package com.example.nagakrishna.farmville_new;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 
@@ -21,7 +22,10 @@ public class GetMongoAsyncTask extends AsyncTask<String, Void, ArrayList<SellerD
     static String OriginalObject = "";
     static String server_output = null;
     static String temp_output = null;
-
+    Context context;
+    public GetMongoAsyncTask(Context context){
+        this.context = context;
+    }
     @Override
     protected void onPostExecute(ArrayList<SellerDetails> sellerDetailses) {
         super.onPostExecute(sellerDetailses);
@@ -37,7 +41,8 @@ public class GetMongoAsyncTask extends AsyncTask<String, Void, ArrayList<SellerD
             //QueryBuilder qb = new QueryBuilder();
 
             String email = arg0[0];
-            String urlNew = "http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com/sellerDetails/SellerDetails?email=" + email;
+//            String urlNew = "http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com/sellerDetails/SellerDetails?email=" + email;
+            String urlNew = context.getResources().getString(R.string.sellerposts) + email;
             URL url = new URL(urlNew);
 //            URL url = new URL(qb.buildContactsGetURL());
             HttpURLConnection conn = (HttpURLConnection) url

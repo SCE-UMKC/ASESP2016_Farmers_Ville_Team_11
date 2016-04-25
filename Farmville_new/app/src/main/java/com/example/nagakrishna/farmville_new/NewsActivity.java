@@ -1,5 +1,6 @@
 package com.example.nagakrishna.farmville_new;
 
+
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -62,6 +63,7 @@ public class NewsActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         new JSONTask().execute("https://gateway-a.watsonplatform.net/calls/data/GetNews?apikey=d7d533dd4390f989d2c18e28d8496756898e15a9&outputMode=json&start=now-1d&end=now&count=10&q.enriched.url.enrichedTitle.taxonomy.taxonomy_=%7Clabel=agriculture,score=%3E0.4%7C&return=enriched.url.url,enriched.url.title,enriched.url.text");
 
     }
@@ -212,20 +214,32 @@ public class NewsActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_refresh) {
-            new JSONTask().execute("https://gateway-a.watsonplatform.net/calls/data/GetNews?apikey=d7d533dd4390f989d2c18e28d8496756898e15a9&outputMode=json&start=now-1d&end=now&count=10&q.enriched.url.enrichedTitle.taxonomy.taxonomy_=%7Clabel=agriculture,score=%3E0.4%7C&return=enriched.url.url,enriched.url.title,enriched.url.text");
-
-
-            return true;
+    public boolean onOptionsItemSelected(MenuItem menuItem)
+    {
+        switch (menuItem.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(menuItem);
         }
-
-        return super.onOptionsItemSelected(item);
     }
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_refresh) {
+//            new JSONTask().execute("https://gateway-a.watsonplatform.net/calls/data/GetNews?apikey=d7d533dd4390f989d2c18e28d8496756898e15a9&outputMode=json&start=now-1d&end=now&count=10&q.enriched.url.enrichedTitle.taxonomy.taxonomy_=%7Clabel=agriculture,score=%3E0.4%7C&return=enriched.url.url,enriched.url.title,enriched.url.text");
+//
+//
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 }

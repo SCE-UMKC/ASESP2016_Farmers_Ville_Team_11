@@ -92,14 +92,16 @@
             android:layout_height="150dp"
             android:scaleType="centerCrop"
             android:id="@+id/imageviewTAB8"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="Settings" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
             android:id="@+id/imageviewTAB9"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="Posts" />
 
     </LinearLayout>
 

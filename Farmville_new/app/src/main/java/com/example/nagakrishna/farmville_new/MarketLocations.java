@@ -25,6 +25,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class MarketLocations extends AppCompatActivity {
@@ -139,7 +141,9 @@ public class MarketLocations extends AppCompatActivity {
             e.printStackTrace();
         }
 
-//        venueCustomListAdapter = new VenueCustomListAdapter(this, itemlist);
+
+//        VenueCustomListAdapter venueCustomListAdapter = new VenueCustomListAdapter(this, itemlist);
+
 //        listView.setSelector(R.drawable.list_selector_focused);
         listView.setAdapter(new VenueCustomListAdapter(this, itemlist));
 //        listView.setSelector(R.drawable.list_selector_focused);

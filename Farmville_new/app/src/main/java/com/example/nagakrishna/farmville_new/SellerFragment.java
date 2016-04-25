@@ -92,9 +92,7 @@ public class SellerFragment extends Fragment  implements OnClickListener, Adapte
         startActivityForResult(new Intent("android.media.action.IMAGE_CAPTURE"), TAKE_PHOTO_CODE);
     }
 
-    public void Post(View view){
 
-    }
 
     public void saveDetails(View v)  {
 
@@ -136,8 +134,10 @@ public class SellerFragment extends Fragment  implements OnClickListener, Adapte
         switch (v.getId()) {
             case R.id.imageValue /*2131558533*/:
                 CameraImage(v);
+                break;
             case R.id.btnSellerSubmit:
                 saveDetails(v);
+                break;
             default:
         }
     }
