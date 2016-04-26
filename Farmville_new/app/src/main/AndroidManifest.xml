@@ -89,6 +89,30 @@
         <activity
             android:name=".Account"
             android:label="@string/title_activity_account"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChangePassword"
+            android:label="@string/title_activity_change_password"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChangeEmail"
+            android:label="@string/title_activity_change_email"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChangeNumber"
+            android:label="@string/title_activity_change_number"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChangeName"
+            android:label="@string/title_activity_change_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChangeAddress"
+            android:label="@string/title_activity_change_address"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChangeImage"
+            android:label="@string/title_activity_change_image"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

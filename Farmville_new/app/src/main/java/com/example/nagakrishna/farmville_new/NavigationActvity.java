@@ -151,20 +151,20 @@ public class NavigationActvity extends AppCompatActivity
                 new Rect(0, 0, targetWidth, targetHeight), null);
         return targetBitmap;
     }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -179,7 +179,11 @@ public class NavigationActvity extends AppCompatActivity
         } else if (id == R.id.nav_about) {
 
         } else if (id == R.id.nav_share) {
-
+            Intent i=new Intent(android.content.Intent.ACTION_SEND);
+            i.setType("text/plain");
+            i.putExtra(android.content.Intent.EXTRA_SUBJECT,"Farmville Android Applicatoin");
+            i.putExtra(android.content.Intent.EXTRA_TEXT, "https://github.com/nagakrishna/ASE-Project");
+            startActivity(Intent.createChooser(i,"Share via"));
         } else if (id == R.id.nav_logout) {
             startActivity(new Intent(this, LoginActivity.class));
         }
@@ -241,6 +245,6 @@ public class NavigationActvity extends AppCompatActivity
     }
 
     public void Posts(View v){
-        startActivity(new Intent(this, Posts.class));
+        startActivity(new Intent(this, Account.class));
     }
 }

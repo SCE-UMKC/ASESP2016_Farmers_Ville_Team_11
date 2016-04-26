@@ -43,7 +43,8 @@
             android:text="Edit"
             android:layout_weight="1.0"
             android:textSize="20sp"
-            android:onClick="BtnEditPost" />
+            android:onClick="BtnEditPost"
+            android:visibility="invisible"/>
 
         <Button
             android:id="@+id/btnDelete"
@@ -51,7 +52,8 @@
             android:text="Delete"
             android:layout_weight="1.0"
             android:textSize="20sp"
-            android:onClick="BtnDeletePost" />
+            android:onClick="BtnDeletePost"
+            android:visibility="invisible"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -105,8 +106,9 @@ public class EditPosts extends AppCompatActivity {
         final ProgressDialog progressDialog = new ProgressDialog(EditPosts.this,
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Authenticating...");
+        progressDialog.setMessage("Saving...");
         progressDialog.show();
+
         String productEdit = productTextview.getText().toString();
         String quantityEdit = quantityTextview.getText().toString();
         String descEdit = descriptionTextview.getText().toString();
@@ -117,9 +119,6 @@ public class EditPosts extends AppCompatActivity {
         else {
             imageEdit = image;
         }
-//        String url = getResources().getString(R.string.editPost) + created + "&Product=" + productEdit + "&Quantity=" + quantityEdit
-//                + "&Description=" + descEdit + "&Image=" + imageEdit;
-
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("created", created);
@@ -131,9 +130,17 @@ public class EditPosts extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        SendUpdatePosts sendUpdatePosts = new SendUpdatePosts(getBaseContext());
-        sendUpdatePosts.execute(String.valueOf(jsonObject));
-        progressDialog.dismiss();
+        new SendUpdatePosts(new LoginServiceListener() {
+            @Override
+            public void servicesuccess(String str) {
+                progressDialog.dismiss();
+                Toast.makeText(getBaseContext(), "Updated Post Successfully", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getBaseContext(), temp.class));
+            }
+        },getBaseContext()).execute(String.valueOf(jsonObject));
+//        SendUpdatePosts sendUpdatePosts = new SendUpdatePosts(getBaseContext());
+//        sendUpdatePosts.execute(String.valueOf(jsonObject));
+
     }
 
     public static String encodeToBase64(Bitmap image, Bitmap.CompressFormat compressFormat, int quality)
@@ -165,12 +172,15 @@ public class EditPosts extends AppCompatActivity {
 class SendUpdatePosts extends AsyncTask<String, String, String>{
 
     Context context;
-    public SendUpdatePosts(Context context){
+    LoginServiceListener listener;
+    public SendUpdatePosts(LoginServiceListener listener, Context context){
         this.context = context;
+        this.listener = listener;
     }
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
+        listener.servicesuccess(s);
     }
 
     @Override

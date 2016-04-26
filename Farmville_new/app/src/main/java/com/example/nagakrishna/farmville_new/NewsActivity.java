@@ -1,6 +1,8 @@
 package com.example.nagakrishna.farmville_new;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -188,7 +190,7 @@ public class NewsActivity extends AppCompatActivity {
 
             TextView tvTitle;
             TextView tvText;
-            TextView tvLink;
+            final TextView tvLink;
 
             tvTitle=(TextView)convertView.findViewById(R.id.tvTitle);
             tvText=(TextView)convertView.findViewById(R.id.tvText);
@@ -199,6 +201,17 @@ public class NewsActivity extends AppCompatActivity {
             tvLink.setText(newsModelList.get(position).getLink());
 
 
+            tvLink.setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String url = tvLink.getText().toString();
+                            Intent i = new Intent(Intent.ACTION_VIEW);
+                            i.setData(Uri.parse(url));
+                            startActivity(i);
+                        }
+                    }
+            );
             return convertView;
         }
     }

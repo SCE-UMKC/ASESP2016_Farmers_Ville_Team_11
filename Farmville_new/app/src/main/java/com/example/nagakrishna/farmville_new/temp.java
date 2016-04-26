@@ -51,42 +51,56 @@ public class temp extends ListActivity {
     public ListView listView;
     SellerPostsCustomListAdapter adapter;
     public int selectedIndex = -1;
-
+    private Button btnDelete, btnEdit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_temp);
 
-        try {
+//        try {
             SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, 0);
             String email = prefs.getString("email", null);
 //            returnValues = (ArrayList<SellerDetails>) getIntent().getSerializableExtra("FILES_TO_SEND");
 
-            GetSellerPost task = new GetSellerPost(getBaseContext());
-            returnValues = task.execute(email).get();
+//            GetSellerPost task = new GetSellerPost(getBaseContext());
+//            returnValues = task.execute(email).get();
 
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+//        }
+//        catch (InterruptedException e) {
+//            e.printStackTrace();
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        }
+//        catch (Exception e){
+//            e.printStackTrace();
+//        }
 
-        for(SellerDetails x: returnValues){
-            itemlist.add(x);
-        }
-        adapter = new SellerPostsCustomListAdapter(this, itemlist);
-        setListAdapter(adapter);
+        btnEdit = (Button)findViewById(R.id.btnEdit);
+        btnDelete = (Button)findViewById(R.id.btnDelete);
+
+        final ProgressDialog progressDialog = new ProgressDialog(this,
+                R.style.AppTheme_Dark_Dialog);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
+        new GetSellerPost(new SellerPostsListener() {
+            @Override
+            public void servicesuccess(ArrayList<SellerDetails> sellerDetailses) {
+                progressDialog.dismiss();
+                returnValues = sellerDetailses;
+                if(returnValues.size()>0){
+                    btnEdit.setVisibility(View.VISIBLE);
+                    btnDelete.setVisibility(View.VISIBLE);
+                }
+                for(SellerDetails x: returnValues){
+                    itemlist.add(x);
+                }
+                adapter = new SellerPostsCustomListAdapter(getBaseContext(), itemlist);
+                setListAdapter(adapter);
+            }
+        },this).execute(email);
+
     }
-//    @Override
-//    public void onRestart() {
-//        super.onRestart();
-//        //When BACK BUTTON is pressed, the activity on the stack is restarted
-//        //Do what you want on the refresh procedure here
-//    }
 
     public void BtnEditPost(View v){
         if(selectedIndex == -1){
@@ -227,13 +241,16 @@ public class temp extends ListActivity {
 
 class GetSellerPost extends AsyncTask<String, String, ArrayList<SellerDetails>> {
    Context context;
-   public GetSellerPost(Context context){
+    SellerPostsListener listener;
+   public GetSellerPost(SellerPostsListener listener, Context context){
        this.context = context;
+       this.listener = listener;
    }
 
     @Override
     protected void onPostExecute(ArrayList<SellerDetails> sellerDetailses) {
         super.onPostExecute(sellerDetailses);
+        listener.servicesuccess(sellerDetailses);
     }
 
     String temp_output, server_output;

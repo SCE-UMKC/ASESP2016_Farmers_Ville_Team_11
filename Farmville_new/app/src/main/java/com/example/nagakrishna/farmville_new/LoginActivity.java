@@ -1,6 +1,7 @@
 package com.example.nagakrishna.farmville_new;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -11,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -40,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
     private String nameUser;
     private String emailUser;
-    private String imageUser;
+    private String imageUser, numberUser, addressUser;
 //    private ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,8 @@ public class LoginActivity extends AppCompatActivity {
 
     public void Login(final View view){
 
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(passwordText.getWindowToken(), 0);
         if (!validate()) {
             onLoginFailed();
             return;
@@ -98,6 +102,8 @@ public class LoginActivity extends AppCompatActivity {
                         nameUser = jsonObject.getString("fullname");
                         emailUser = jsonObject.getString("email");
                         imageUser = jsonObject.getString("image");
+                        numberUser = jsonObject.getString("number");
+                        addressUser = jsonObject.getString("address");
                         Log.i(TAG, nameUser);
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -106,6 +112,8 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString("name", nameUser);
                     editor.putString("email", emailUser);
                     editor.putString("image", imageUser);
+                    editor.putString("number", numberUser);
+                    editor.putString("address", addressUser);
                     editor.commit();
                     onLoginSuccess();
                     startActivity(new Intent(view.getContext(), NavigationActvity.class));
@@ -116,12 +124,12 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onLoginSuccess() {
         loginButton.setEnabled(true);
-        Toast.makeText(getBaseContext(), "Welcome " + nameUser, Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "Welcome " + nameUser, Toast.LENGTH_SHORT).show();
         finish();
     }
 
     public void onLoginFailed() {
-        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_SHORT).show();
 
         loginButton.setEnabled(true);
     }

@@ -1,6 +1,8 @@
 package com.example.nagakrishna.farmville_new;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Patterns;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -38,6 +41,7 @@ public class Registration extends AppCompatActivity {
     private EditText passwordText, cpasswordText;
     private Button signupButton;
     private String Datetime;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,12 +62,21 @@ public class Registration extends AppCompatActivity {
 
     }
 
+
     public void SignUpr(View v){
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(cpasswordText.getWindowToken(), 0);
         if (!validate()) {
             onSignupFailed();
             return;
         }
         else{
+
+            final ProgressDialog progressDialog = new ProgressDialog(Registration.this,
+                    R.style.AppTheme_Dark_Dialog);
+            progressDialog.setIndeterminate(true);
+            progressDialog.setMessage("Registering...");
+            progressDialog.show();
             signupButton.setEnabled(false);
             String name = nameText.getText().toString();
             String email = emailText.getText().toString();
@@ -81,16 +94,65 @@ public class Registration extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+            new SendData(this);
+            new SendData(new LoginServiceListener() {
+                @Override
+                public void servicesuccess(String str) {
+                    progressDialog.dismiss();
+                    onSignupSuccess();
+                }
+            }, this).execute(jsonObject.toString());
 
-            if(jsonObject.length()>0){
-                new SendData(getBaseContext()).execute(String.valueOf(jsonObject));
-                onSignupSuccess();
-            }
 
         }
 
-    }
 
+    }
+//    public void SignUpr(View v){
+//        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+//        imm.hideSoftInputFromWindow(cpasswordText.getWindowToken(), 0);
+//        if (!validate()) {
+//            onSignupFailed();
+//            return;
+//        }
+//        else{
+//
+//            progressDialog = new ProgressDialog(Registration.this,
+//                    R.style.AppTheme_Dark_Dialog);
+//            progressDialog.setIndeterminate(true);
+//            progressDialog.setMessage("Authenticating...");
+//            progressDialog.show();
+//            signupButton.setEnabled(false);
+//            String name = nameText.getText().toString();
+//            String email = emailText.getText().toString();
+//            String number = numberText.getText().toString();
+//            String password = passwordText.getText().toString();
+//            JSONObject jsonObject = new JSONObject();
+//            try {
+//                jsonObject.put("email", email);
+//                jsonObject.put("password", password);
+//                jsonObject.put("number", number);
+//                jsonObject.put("fullname", name);
+//                jsonObject.put("created", Datetime);
+//                jsonObject.put("address", "no address");
+//                jsonObject.put("image", "null");
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//
+//            if(jsonObject.length()>0){
+//                new SendData(getBaseContext()).execute(String.valueOf(jsonObject));
+//                onSignupSuccess();
+//            }
+//
+//        }
+//
+//
+//    }
+
+    public void Finish1(){
+        progressDialog.dismiss();
+    }
     public void onSignupFailed() {
         Toast.makeText(getBaseContext(), "Registration failed", Toast.LENGTH_LONG).show();
         signupButton.setEnabled(true);
@@ -101,6 +163,11 @@ public class Registration extends AppCompatActivity {
         setResult(RESULT_OK, null);
         Toast.makeText(getBaseContext(), "Registration Successful", Toast.LENGTH_LONG).show();
         finish();
+    }
+
+    public void Login(View view){
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 
     public boolean validate() {
@@ -159,6 +226,13 @@ class SendData extends AsyncTask<String, String, String>{
         this.context = context;
     }
 
+    private LoginServiceListener listener;
+    public SendData(LoginServiceListener listener, Context context)
+    {
+        this.listener = listener;
+        this.context = context;
+    }
+
     @Override
     protected String doInBackground(String... params) {
         String JsonResponse = null;
@@ -199,5 +273,8 @@ class SendData extends AsyncTask<String, String, String>{
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
+        listener.servicesuccess(s);
+//        Registration registration = new Registration();
+//        registration.Finish1();
     }
 }

@@ -1,6 +1,7 @@
 package com.example.nagakrishna.farmville_new;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -46,32 +47,55 @@ public class SellersDetails extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         nameText = (TextView) findViewById(R.id.txtFullnameValue);
         numberText = (TextView) findViewById(R.id.txtNumberValue);
         addressText = (TextView) findViewById(R.id.txtAddressValue);
         Bundle bundle = getIntent().getExtras();
         String email = bundle.getString("SellerEmail");
+        final ProgressDialog progressDialog = new ProgressDialog(this,
+                R.style.AppTheme_Dark_Dialog);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
 
+        new GetSellerDetails(new LoginServiceListener() {
+            @Override
+            public void servicesuccess(String str) {
+                try {
+                    progressDialog.dismiss();
+                    returnValues = str;
+                    JSONArray jsonArray = new JSONArray(returnValues);
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+                    fullname = jsonObject.getString("fullname");
+                    address = jsonObject.getString("address");
+                    number = jsonObject.getString("number");
+                    nameText.setText(fullname);
+                    numberText.setText(number);
+                    addressText.setText(address);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, this).execute(email);
 
-        GetSellerDetails task = new GetSellerDetails(getBaseContext());
-        try {
-            returnValues = task.execute(email).get();
-            JSONArray jsonArray = new JSONArray(returnValues);
-            JSONObject jsonObject = jsonArray.getJSONObject(0);
-            fullname = jsonObject.getString("fullname");
-            address = jsonObject.getString("address");
-            number = jsonObject.getString("number");
-            nameText.setText(fullname);
-            numberText.setText(number);
-            addressText.setText(address);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+//        GetSellerDetails task = new GetSellerDetails(getBaseContext());
+//        try {
+//            returnValues = task.execute(email).get();
+//            JSONArray jsonArray = new JSONArray(returnValues);
+//            JSONObject jsonObject = jsonArray.getJSONObject(0);
+//            fullname = jsonObject.getString("fullname");
+//            address = jsonObject.getString("address");
+//            number = jsonObject.getString("number");
+//            nameText.setText(fullname);
+//            numberText.setText(number);
+//            addressText.setText(address);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
     }
 
 
@@ -119,9 +143,10 @@ class GetSellerDetails extends AsyncTask<String, String, String>{
     static String temp_output = null;
     StringBuilder result = null;
     Context context;
-
-    public GetSellerDetails(Context context){
+    LoginServiceListener listener;
+    public GetSellerDetails(LoginServiceListener listener, Context context){
         this.context = context;
+        this.listener = listener;
     }
 
     @Override
@@ -163,6 +188,7 @@ class GetSellerDetails extends AsyncTask<String, String, String>{
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
+        listener.servicesuccess(s);
     }
 }
 

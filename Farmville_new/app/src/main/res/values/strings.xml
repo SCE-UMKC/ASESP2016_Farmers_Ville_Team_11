@@ -24,19 +24,30 @@
     <string name="title_activity_edit_posts">EditPosts</string>
 
 
-    <!--<string name="loginCheck">http://farmvillenew-1.s8h8thyfmy.us-west-2.elasticbeanstalk.com/restService/user?email=</string>-->
-    <string name="loginCheck">http://192.168.0.9:8085/MongoRestServiceExample/restService/user?email=</string>
-    <!--<string name="registration">http://farmvillenew-1.s8h8thyfmy.us-west-2.elasticbeanstalk.com/restService/user</string>-->
-    <string name="registration">http://192.168.0.9:8085/MongoRestServiceExample/restService/user</string>
-    <string name="sellerposts">http://farmvillenew-1.s8h8thyfmy.us-west-2.elasticbeanstalk.com/sellerDetails/SellerDetails?email=</string>
-    <string name="sellerDetails">http://farmvillenew-1.s8h8thyfmy.us-west-2.elasticbeanstalk.com/emailcheck/EmailCheck?email=</string>
-    <!--<string name="editPost">http://farmvillenew-1.s8h8thyfmy.us-west-2.elasticbeanstalk.com/editPosts/EditPosts?created=</string>-->
-    <!--<string name="editPost">http://192.168.0.9:8085/MongoRestServiceExample/editPosts/EditPosts?created=</string>-->
-    <string name="editPost">http://192.168.0.9:8085/MongoRestServiceExample/editPosts/EditPosts</string>
-    <!--<string name="editPost">http://farm.ffq6pzmsmr.us-west-2.elasticbeanstalk.com/editPosts/EditPosts?created=</string>-->
-    <!--<string name="deletePost">http://farmvillenew-1.s8h8thyfmy.us-west-2.elasticbeanstalk.com/deletePost/DeletePost?created=</string>-->
-    <string name="deletePost">http://192.168.0.9:8085/MongoRestServiceExample/deletePost/DeletePost</string>
-    <string name="IndividualSellerPosts">http://farmvillenew-1.s8h8thyfmy.us-west-2.elasticbeanstalk.com/sellerPostDetails/SellerPostDetails?email=</string>
+    <string name="loginCheck">http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com//restService/user?email=</string>
+    <!--<string name="loginCheck">http://192.168.0.9:8085/MongoRestServiceExample/restService/user?email=</string>-->
+    <string name="registration">http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com/restService/user</string>
+    <!--<string name="registration">http://192.168.0.9:8085/MongoRestServiceExample/restService/user</string>-->
+    <string name="sellerposts">http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com/sellerDetails/SellerDetails?email=</string>
+    <string name="sellerDetails">http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com/emailcheck/EmailCheck?email=</string>
+    <!--<string name="editPost">http://192.168.0.9:8085/MongoRestServiceExample/editPosts/EditPosts</string>-->
+    <string name="editPost">http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com/editPosts/EditPosts</string>
+    <!--<string name="deletePost">http://192.168.0.9:8085/MongoRestServiceExample/deletePost/DeletePost</string>-->
+    <string name="deletePost">http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com/deletePost/DeletePost</string>
+    <string name="IndividualSellerPosts">http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com/sellerPostDetails/SellerPostDetails?email=</string>
+    <!--<string name="changeEmail">http://192.168.0.9:8085/MongoRestServiceExample/updateEmail/UpdateEmail</string>-->
+    <!--<string name="changePassword">http://192.168.0.9:8085/MongoRestServiceExample/updatePassword/UpdatePassword</string>-->
+    <!--<string name="changeAddress">http://192.168.0.9:8085/MongoRestServiceExample/updateAddress/UpdateAddress</string>-->
+    <!--<string name="changeNumber">http://192.168.0.9:8085/MongoRestServiceExample/updateNumber/UpdateNumber</string>-->
+    <!--<string name="changeImage">http://192.168.0.9:8085/MongoRestServiceExample/updateImage/UpdateImage</string>-->
+    <!--<string name="changeName">http://192.168.0.9:8085/MongoRestServiceExample/updateFullName/UpdateFullName</string>-->
+
+    <string name="changeEmail">http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com/updateEmail/UpdateEmail</string>
+    <string name="changePassword">http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com/updatePassword/UpdatePassword</string>
+    <string name="changeAddress">http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com/updateAddress/UpdateAddress</string>
+    <string name="changeNumber">http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com/updateNumber/UpdateNumber</string>
+    <string name="changeImage">http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com/updateImage/UpdateImage</string>
+    <string name="changeName">http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com/updateFullName/UpdateFullName</string>
     <string name="title_activity_login_activity_temp">Sign in</string>
 
     <!-- Strings related to login -->
@@ -56,4 +67,11 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_account">Account</string>
+    <string name="title_activity_change_password">ChangePassword</string>
+    <string name="title_activity_change_email">ChangeEmail</string>
+    <string name="title_activity_change_number">ChangeNumber</string>
+    <string name="title_activity_change_name">ChangeName</string>
+    <string name="title_activity_update_address">UpdateAddress</string>
+    <string name="title_activity_change_address">ChangeAddress</string>
+    <string name="title_activity_change_image">ChangeImage</string>
 </resources>

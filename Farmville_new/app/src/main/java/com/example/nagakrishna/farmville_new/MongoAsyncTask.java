@@ -15,6 +15,17 @@ import org.apache.http.impl.client.DefaultHttpClient;
  */
 public class MongoAsyncTask extends AsyncTask<SellerDetails, Void, Boolean> {
 
+    private LoginServiceListener listener;
+    public MongoAsyncTask(LoginServiceListener listener){
+     this.listener = listener;
+    }
+
+    @Override
+    protected void onPostExecute(Boolean aBoolean) {
+        super.onPostExecute(aBoolean);
+        listener.servicesuccess("naga");
+    }
+
     @Override
     protected Boolean doInBackground(SellerDetails... arg0) {
         try

@@ -96,7 +96,8 @@
             android:layout_marginBottom="24dp"
             android:text="Already a member? Login"
             android:gravity="center"
-            android:textSize="16dip"/>
+            android:textSize="16dip"
+            android:onClick="Login" />
 
     </LinearLayout>
 </ScrollView>

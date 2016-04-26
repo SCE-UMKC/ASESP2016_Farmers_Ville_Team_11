@@ -1,5 +1,6 @@
 package com.example.nagakrishna.farmville_new;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -96,6 +97,11 @@ public class SellerFragment extends Fragment  implements OnClickListener, Adapte
 
     public void saveDetails(View v)  {
 
+        final ProgressDialog progressDialog = new ProgressDialog(getContext(),
+                R.style.AppTheme_Dark_Dialog);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Saving...");
+        progressDialog.show();
         SellerDetails contact = new SellerDetails();
         contact.product = productName.getText().toString();
         contact.quantity = quantity.getText().toString();
@@ -114,9 +120,16 @@ public class SellerFragment extends Fragment  implements OnClickListener, Adapte
         }
 
 
-        MongoAsyncTask tsk = new MongoAsyncTask();
-        tsk.execute(contact);
-        Toast.makeText(this.getContext(), "Posted Successfully", Toast.LENGTH_SHORT).show();
+//        MongoAsyncTask tsk = new MongoAsyncTask();
+//        tsk.execute(contact);
+        new MongoAsyncTask(new LoginServiceListener() {
+            @Override
+            public void servicesuccess(String str) {
+                progressDialog.dismiss();
+                Toast.makeText(getContext(), "Posted Successfully", Toast.LENGTH_SHORT).show();
+            }
+        }).execute(contact);
+
 
     }
 

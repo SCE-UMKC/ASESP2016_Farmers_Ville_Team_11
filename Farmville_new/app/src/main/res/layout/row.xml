@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Link"
-        android:id="@+id/tvLink" />
+        android:id="@+id/tvLink"
+        android:textColor="@color/colorPrimary"/>
 
 </LinearLayout>

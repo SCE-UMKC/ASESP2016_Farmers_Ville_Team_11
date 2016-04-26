@@ -48,7 +48,12 @@ public class Posts extends  AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, 0);
         String email = prefs.getString("email", null);
 
-        GetSellerPost task = new GetSellerPost(getBaseContext());
+        GetSellerPost task = new GetSellerPost(new SellerPostsListener() {
+            @Override
+            public void servicesuccess(ArrayList<SellerDetails> sellerDetailses) {
+
+            }
+        },getBaseContext());
 
             returnValues = task.execute(email).get();
         } catch (InterruptedException e) {
