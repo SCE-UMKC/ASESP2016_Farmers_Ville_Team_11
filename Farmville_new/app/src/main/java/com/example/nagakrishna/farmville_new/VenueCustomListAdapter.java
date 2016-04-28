@@ -2,6 +2,7 @@ package com.example.nagakrishna.farmville_new;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,6 +57,17 @@ public class VenueCustomListAdapter extends BaseAdapter {
         address.setText(String.valueOf(mar.getMarketID()));
         distance.setText(String.valueOf(mar.getDistance()));
 
+        if (position % 2 == 0) {
+            convertView.setBackgroundColor(convertView.getResources().getColor(R.color.one));
+        } else if (position % 2 == 1) {
+            convertView.setBackgroundColor(convertView.getResources().getColor(R.color.two));}
+//        }else if (position % 5 == 2) {
+//            convertView.setBackgroundColor(convertView.getResources().getColor(R.color.three));
+//        }else if (position % 5 == 3) {
+//            convertView.setBackgroundColor(convertView.getResources().getColor(R.color.four));
+//        }else  {
+//            convertView.setBackgroundColor(convertView.getResources().getColor(R.color.five));
+//        }
         address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

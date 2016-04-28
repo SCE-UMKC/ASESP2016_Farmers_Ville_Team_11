@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="Blue">#3F51B5</color>
+    <color name="colorPrimary">#ff2e8a06</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="primary_darker">#CC1D1D</color>
@@ -16,6 +17,15 @@
     <color name="base">#AAAAAA</color>
     <color name="iron">#CCCCCC</color>
     <color name="white">#FFFFFF</color>
+    <color name="primary_blue">#4A90E2</color>
+    <color name="divider">#B6B6B6</color>
+    <color name="text_color_icon">#212121</color>
 
+
+    <color name="one">#F0F2DD</color>
+    <color name="two">#E1E3AC</color>
+    <color name="three">#ADB1AB</color>
+    <color name="four">#CDDAC6</color>
+    <color name="five">#A1BD92</color>
 
 </resources>

@@ -84,7 +84,7 @@ public class ChangeName extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        AsyncChangeNumber task = new AsyncChangeNumber(getBaseContext());
+        AsyncChangeName task = new AsyncChangeName(getBaseContext());
         task.execute(jsonObject.toString());
         Toast.makeText(getBaseContext(), "Changed Name Successfully", Toast.LENGTH_LONG).show();
         startActivity(new Intent(this, Account.class));

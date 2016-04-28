@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,6 +43,11 @@ public class MarketLocations extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+        RelativeLayout lLayout = (RelativeLayout) findViewById(R.id.relativelayoutMarketLocations);
+        lLayout.setBackgroundColor(getResources().getColor(R.color.one));
         GetGps getGps = new GetGps(getApplicationContext());
         this.latitude = getGps.GetLatitude();
         this.longitude = getGps.GetLongitude();

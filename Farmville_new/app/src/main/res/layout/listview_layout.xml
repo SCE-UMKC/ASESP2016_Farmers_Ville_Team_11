@@ -1,68 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="80dp"
+    android:orientation="horizontal">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:textSize="@dimen/fontsize"
-            android:id="@+id/txtName"
-            android:text="Name: "
-            android:width="120dp"/>
-
-        <TextView
             android:id="@+id/listname"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/txtName"
+            android:text="Name"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
             android:layout_width="match_parent"
-            android:textSize="@dimen/fontsize" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-
-        <TextView
-            android:id="@+id/txtAddress"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="Address"
-            android:textSize="@dimen/fontsize"
-            android:width="120dp" />
-
-        <TextView
             android:id="@+id/listAddress"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/txtAddress"
-            android:layout_width="match_parent"
-            android:textSize="@dimen/fontsize" />
-    </RelativeLayout>
+            android:text="Address"/>
 
-    <RelativeLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/txtDistance"
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="Distance"
-            android:textSize="@dimen/fontsize"
-            android:width="120dp" />
-
-        <TextView
-            android:id="@+id/listDistance"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/txtDistance"
-            android:layout_width="match_parent"
-            android:textSize="@dimen/fontsize" />
-    </RelativeLayout>
+            android:text="miles"
+            android:id="@+id/listDistance"/>
+    </LinearLayout>
+
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<TextView-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:textSize="@dimen/fontsize"-->
+            <!--android:id="@+id/txtName"-->
+            <!--android:text="Name: "-->
+            <!--android:width="120dp"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/listname"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_toRightOf="@id/txtName"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:textSize="@dimen/fontsize" />-->
+    <!--</RelativeLayout>-->
+
+    <!--<RelativeLayout-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_width="match_parent">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/txtAddress"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:text="Address"-->
+            <!--android:textSize="@dimen/fontsize"-->
+            <!--android:width="120dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/listAddress"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_toRightOf="@id/txtAddress"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:textSize="@dimen/fontsize" />-->
+    <!--</RelativeLayout>-->
+
+    <!--<RelativeLayout-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_width="match_parent">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/txtDistance"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:text="Distance"-->
+            <!--android:textSize="@dimen/fontsize"-->
+            <!--android:width="120dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/listDistance"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_toRightOf="@id/txtDistance"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:textSize="@dimen/fontsize" />-->
+    <!--</RelativeLayout>-->
 
 
 

@@ -114,7 +114,7 @@ public class ChangeAddress extends AppCompatActivity  {
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("email", email);
-            jsonObject.put("address", address);
+            jsonObject.put("addressNew", address);
         } catch (JSONException e) {
             e.printStackTrace();
         }

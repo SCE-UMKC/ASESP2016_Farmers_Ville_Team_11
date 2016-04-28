@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Chat">
+
+    <ListView
+        android:id="@+id/messages_list"
+        android:layout_weight="100"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:divider="@null"
+        android:paddingTop="60dp"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_gravity="bottom"
+        android:background="@color/divider"
+        android:layout_above="@+id/senderContainer"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp">
+
+        <EditText
+            android:id="@+id/new_message"
+            android:layout_weight="100"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Type your message"/>
+        <!--<Button-->
+            <!--android:id="@+id/send_message"-->
+            <!--android:text="@string/send"-->
+            <!--android:background="@color/primary_blue"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+        <ImageButton android:id="@+id/send_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="10dp"
+            android:maxHeight="10dp"
+            android:src="@drawable/ic_send_msg" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -27,7 +27,7 @@
         android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:text="Change"
-        android:id="@+id/btnChangeNumber"
-        android:onClick="ChangeNumberM" />
+        android:id="@+id/btnChangeImage"
+        android:onClick="ChangeImageM" />
 
 </LinearLayout>

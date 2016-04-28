@@ -27,6 +27,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class NavigationActvity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -84,7 +86,8 @@ public class NavigationActvity extends AppCompatActivity
 
 
         View hView =  navigationView.getHeaderView(0);
-        imageViewUser = (ImageView) hView.findViewById(R.id.navImageViewUser);
+//        imageViewUser = (ImageView) hView.findViewById(R.id.navImageViewUser);
+        imageViewUser = (CircleImageView) hView.findViewById(R.id.navImageViewUser);
         TextView nav_user = (TextView)hView.findViewById(R.id.navTextViewUsername);
         TextView nav_email = (TextView)hView.findViewById(R.id.navTextViewEmail);
 
@@ -100,8 +103,8 @@ public class NavigationActvity extends AppCompatActivity
         }
         else {
             Bitmap myBitmapAgain = decodeBase64(image);
-            Bitmap roundImage = getRoundedShape(myBitmapAgain);
-            imageViewUser.setImageBitmap(roundImage);
+//            Bitmap roundImage = getRoundedShape(myBitmapAgain);
+            imageViewUser.setImageBitmap(myBitmapAgain);
         }
 
     }
@@ -124,7 +127,7 @@ public class NavigationActvity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.navigation_actvity, menu);
+//        getMenuInflater().inflate(R.menu.navigation_actvity, menu);
         return true;
     }
 
@@ -174,7 +177,9 @@ public class NavigationActvity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             startActivity(new Intent(this, NavigationActvity.class));
-        } else if (id == R.id.nav_posts) {
+        } else if (id == R.id.nav_chats) {
+            startActivity(new Intent(this, ChatUsers.class));
+        }else if (id == R.id.nav_posts) {
             startActivity(new Intent(this, temp.class));
         } else if (id == R.id.nav_about) {
 
@@ -206,13 +211,14 @@ public class NavigationActvity extends AppCompatActivity
     }
 
     public void Journal(View v) {
+        startActivity(new Intent(this, Chat.class));
     }
 
     public void MarketPrices(View v) {
-        startActivity(new Intent(this, MongoActivity.class));
     }
 
     public void Suggestions(View v) {
+        startActivity(new Intent(this, ChatUsers.class));
     }
 
     public void MarketPlaces(View v) {

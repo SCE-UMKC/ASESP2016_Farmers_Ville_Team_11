@@ -60,7 +60,7 @@ public class ChangeImage extends AppCompatActivity {
         image = prefs.getString("image", null);
 
         imageViewCurrentImage = (ImageView)findViewById(R.id.ImageviewchageImage);
-        editTextNewNumber = (EditText)findViewById(R.id.changenumber);
+
         if(image.equals("null")){
             imageViewCurrentImage.setImageDrawable(getResources().getDrawable(R.drawable.image_not_available));
         }
@@ -79,23 +79,27 @@ public class ChangeImage extends AppCompatActivity {
 
     }
 
-    public void ChangeNumberM(View v){
-        if(myBase64Image.equals("null")){
-            Toast.makeText(this, "Click New Picture", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        else{
-            JSONObject jsonObject = new JSONObject();
-            try {
-                jsonObject.put("email", email);
-                jsonObject.put("image", myBase64Image);
-                AsyncChangeImage task = new AsyncChangeImage(getBaseContext());
-                task.execute(jsonObject.toString());
-                Toast.makeText(getBaseContext(), "Changed Image Successfully", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(this, Account.class));
-            } catch (JSONException e) {
-                e.printStackTrace();
+    public void ChangeImageM(View v){
+        try {
+            if (myBase64Image == null) {
+                Toast.makeText(this, "Click New Picture", Toast.LENGTH_SHORT).show();
+                return;
+            } else {
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    jsonObject.put("email", email);
+                    jsonObject.put("image", myBase64Image);
+                    AsyncChangeImage task = new AsyncChangeImage(getBaseContext());
+                    task.execute(jsonObject.toString());
+                    Toast.makeText(getBaseContext(), "Changed Image Successfully", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(this, Account.class));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
+        }
+        catch (Exception e){
+            e.printStackTrace();
         }
     }
 

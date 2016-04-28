@@ -15,6 +15,24 @@ public class ForecastDay {
     public String main;
     public String pressure;
     public String windspeed;
+    public String date;
+    public String time;
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getTime() {
+        return time;
+    }
 
     public String getDateTime() {
         return this.dateTime;

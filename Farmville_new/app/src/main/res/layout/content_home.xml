@@ -55,7 +55,8 @@
             android:layout_height="150dp"
             android:scaleType="centerCrop"
             android:id="@+id/imageviewTAB4"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="Journal" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -70,7 +71,8 @@
             android:layout_height="150dp"
             android:scaleType="centerCrop"
             android:id="@+id/imageviewTAB6"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="Suggestions" />
 
     </LinearLayout>
 

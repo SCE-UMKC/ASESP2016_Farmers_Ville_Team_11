@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -36,8 +37,10 @@ import java.util.concurrent.ExecutionException;
 public class SellersDetails extends AppCompatActivity {
 
     private TextView nameText, numberText, addressText;
+    private TextView txtnameText, txtnumberText, txtaddressText;
     private String returnValues;
     private String fullname, address, number, reviews;
+    private Button btnChat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,10 @@ public class SellersDetails extends AppCompatActivity {
         nameText = (TextView) findViewById(R.id.txtFullnameValue);
         numberText = (TextView) findViewById(R.id.txtNumberValue);
         addressText = (TextView) findViewById(R.id.txtAddressValue);
+        txtnameText = (TextView) findViewById(R.id.txtFullname);
+        txtnumberText = (TextView) findViewById(R.id.txtNumber);
+        txtaddressText = (TextView) findViewById(R.id.txtAddress);
+        btnChat = (Button)findViewById(R.id.btnChat);
         Bundle bundle = getIntent().getExtras();
         String email = bundle.getString("SellerEmail");
         final ProgressDialog progressDialog = new ProgressDialog(this,
@@ -64,6 +71,10 @@ public class SellersDetails extends AppCompatActivity {
                 try {
                     progressDialog.dismiss();
                     returnValues = str;
+                    txtnameText.setVisibility(View.VISIBLE);
+                    txtnumberText.setVisibility(View.VISIBLE);
+                    txtaddressText.setVisibility(View.VISIBLE);
+                    btnChat.setVisibility(View.VISIBLE);
                     JSONArray jsonArray = new JSONArray(returnValues);
                     JSONObject jsonObject = jsonArray.getJSONObject(0);
                     fullname = jsonObject.getString("fullname");
@@ -77,6 +88,7 @@ public class SellersDetails extends AppCompatActivity {
                 }
             }
         }, this).execute(email);
+
 
 //        GetSellerDetails task = new GetSellerDetails(getBaseContext());
 //        try {
@@ -98,6 +110,12 @@ public class SellersDetails extends AppCompatActivity {
 //        }
     }
 
+
+    public void Chat(View view){
+        Intent intent = new Intent(this, Chat.class);
+        intent.putExtra("chatName", fullname);
+        startActivity(intent);
+    }
 
     public void CallNumberIntent(View v) {
         Intent callIntent = new Intent(Intent.ACTION_CALL);

@@ -8,6 +8,11 @@
             android:title="Home" />
 
         <item
+            android:id="@+id/nav_chats"
+            android:icon="@drawable/ic_menu_chats"
+            android:title="Conversations" />
+
+        <item
             android:id="@+id/nav_posts"
             android:icon="@drawable/ic_menu_send"
             android:title="My posts" />

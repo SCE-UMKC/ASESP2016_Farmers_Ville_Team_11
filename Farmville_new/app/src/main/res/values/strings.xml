@@ -18,7 +18,7 @@
     <string name="title_activity_suggestions">Suggestions</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_registration">Registration</string>
-    <string name="title_activity_sellers_details">SellersDetails</string>
+    <string name="title_activity_sellers_details">Seller Details</string>
     <string name="title_activity_posts">Posts</string>
     <string name="title_activity_temp">temp</string>
     <string name="title_activity_edit_posts">EditPosts</string>
@@ -62,16 +62,20 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="title_activity_navigation_actvity">NavigationActvity</string>
+    <string name="title_activity_navigation_actvity">Home</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_account">Account</string>
-    <string name="title_activity_change_password">ChangePassword</string>
-    <string name="title_activity_change_email">ChangeEmail</string>
-    <string name="title_activity_change_number">ChangeNumber</string>
-    <string name="title_activity_change_name">ChangeName</string>
+    <string name="title_activity_change_password">Change Password</string>
+    <string name="title_activity_change_email">Change Email</string>
+    <string name="title_activity_change_number">Change Number</string>
+    <string name="title_activity_change_name">Change Name</string>
     <string name="title_activity_update_address">UpdateAddress</string>
-    <string name="title_activity_change_address">ChangeAddress</string>
-    <string name="title_activity_change_image">ChangeImage</string>
+    <string name="title_activity_change_address">Change Address</string>
+    <string name="title_activity_change_image">Change Image</string>
+    <string name="title_activity_chat">Chat</string>
+    <string name="send">Send</string>
+    <string name="title_activity_chat_users">Conversations</string>
+    <string name="title_activity_sample">sample</string>
 </resources>

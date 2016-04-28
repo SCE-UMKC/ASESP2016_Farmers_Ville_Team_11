@@ -70,7 +70,7 @@ public class ChangePassword extends AppCompatActivity {
             JSONObject jsonObject = new JSONObject();
             try {
                 jsonObject.put("email", email);
-                jsonObject.put("passwordNew", password);
+                jsonObject.put("password", password);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

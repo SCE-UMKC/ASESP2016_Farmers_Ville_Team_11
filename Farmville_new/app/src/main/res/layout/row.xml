@@ -23,6 +23,6 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Link"
         android:id="@+id/tvLink"
-        android:textColor="@color/colorPrimary"/>
+        android:textColor="@color/Blue"/>
 
 </LinearLayout>
