@@ -13,81 +13,118 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
 
-            <TextView
-                android:id="@+id/txtProduct"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:paddingTop="15dp"
-                android:text="Product"
-                android:textSize="@dimen/fontsize"
-                android:width="120dp" />
-
-            <EditText
-                android:id="@+id/product"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/txtProduct"
-                android:layout_width="match_parent"
-                android:maxLines="1"
-                android:textSize="@dimen/fontsize" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
-
-            <TextView
-                android:id="@+id/txtQuantity"
-                android:layout_height="wrap_content"
-                android:layout_weight="2.0"
-                android:layout_width="wrap_content"
-                android:paddingTop="20dp"
-                android:text="Quantity"
-                android:textSize="@dimen/fontsize"
-                android:width="120dp" />
-
-            <EditText
-                android:id="@+id/unitsValue"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/txtQuantity"
-                android:layout_width="wrap_content"
-                android:maxLines="1"
-                android:textSize="@dimen/fontsize"
-                android:width="300dp" />
-
-            <!--<Spinner-->
-                <!--android:id="@+id/units"-->
+            <!--<TextView-->
+                <!--android:id="@+id/txtProduct"-->
                 <!--android:layout_height="wrap_content"-->
-                <!--android:layout_toRightOf="@id/unitsValue"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:paddingTop="15dp"-->
+                <!--android:text="Product"-->
+                <!--android:textSize="@dimen/fontsize"-->
+                <!--android:width="120dp" />-->
 
-                <!--android:layout_width="match_parent" />-->
-        </RelativeLayout>
+            <!--<EditText-->
+                <!--android:id="@+id/product"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_toRightOf="@id/txtProduct"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:maxLines="1"-->
+                <!--android:hint="Product Details"-->
+                <!--android:textSize="@dimen/fontsize" />-->
 
-        <RelativeLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
-
-            <TextView
-                android:id="@+id/txtDescription"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:paddingTop="15dp"
-                android:text="Description"
-                android:textSize="@dimen/fontsize"
-                android:width="120dp" />
-
-            <EditText
-                android:id="@+id/descriptionValue"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/txtDescription"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:maxLength="2000"
-                android:maxLines="4"
-                android:textSize="25dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+                <EditText android:id="@+id/product"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textAutoCorrect"
+                    android:hint="Product Details" />
+            </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
+
+            <!--<TextView-->
+                <!--android:id="@+id/txtQuantity"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="2.0"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:paddingTop="20dp"-->
+                <!--android:text="Quantity"-->
+                <!--android:textSize="@dimen/fontsize"-->
+                <!--android:width="120dp"-->
+                <!--android:visibility="visible"/>-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/unitsValue"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_toRightOf="@id/txtQuantity"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:maxLines="1"-->
+                <!--android:textSize="@dimen/fontsize"-->
+                <!--android:width="300dp"-->
+                <!--android:hint="Quantity of Product"/>-->
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+                <EditText android:id="@+id/unitsValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textAutoCorrect"
+                    android:hint="Product Quantity" />
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <!--<TextView-->
+                <!--android:id="@+id/txtDescription"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:paddingTop="15dp"-->
+                <!--android:text="Description"-->
+                <!--android:textSize="@dimen/fontsize"-->
+                <!--android:width="120dp" -->
+                <!--android:visibility="invisible"/>-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/descriptionValue"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_toRightOf="@id/txtDescription"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:maxLength="2000"-->
+                <!--android:maxLines="4"-->
+                <!--android:textSize="25dp" />-->
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+                <EditText android:id="@+id/descriptionValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textAutoCorrect"
+                    android:maxLength="2000"
+                    android:maxLines="4"
+                    android:hint="Description" />
+            </android.support.design.widget.TextInputLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:paddingLeft="80dp">
 
             <TextView
                 android:id="@+id/txtImage"
@@ -96,15 +133,14 @@
                 android:paddingTop="15dp"
                 android:text="Image"
                 android:textSize="@dimen/fontsize"
-                android:width="120dp" />
+                android:width="120dp"
+                android:visibility="invisible"/>
 
             <ImageView
                 android:id="@+id/imageValue"
                 android:layout_height="200dp"
-                android:layout_toRightOf="@id/txtImage"
                 android:layout_width="200dp"
-                android:maxHeight="200dp"
-                android:maxWidth="200dp"
+
                 android:paddingTop="20dp"
                 android:scaleType="centerCrop" />
         </RelativeLayout>
@@ -115,12 +151,16 @@
             android:layout_width="wrap_content"
             android:paddingTop="20dp">
 
-            <Button
+            <TextView
                 android:id="@+id/btnSellerSubmit"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_width="100dp"
                 android:text="Post"
-                android:nestedScrollingEnabled="true" />
+                android:nestedScrollingEnabled="true"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="@color/txt_white"
+                android:background="@drawable/txtview"/>
         </RelativeLayout>
     </LinearLayout>
 

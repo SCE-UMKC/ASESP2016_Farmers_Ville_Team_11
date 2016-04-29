@@ -21,7 +21,7 @@
     <string name="title_activity_sellers_details">Seller Details</string>
     <string name="title_activity_posts">Posts</string>
     <string name="title_activity_temp">temp</string>
-    <string name="title_activity_edit_posts">EditPosts</string>
+    <string name="title_activity_edit_posts">Edit Post</string>
 
 
     <string name="loginCheck">http://farmville.kwkpfawsu2.us-west-2.elasticbeanstalk.com//restService/user?email=</string>

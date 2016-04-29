@@ -21,11 +21,15 @@
     <color name="divider">#B6B6B6</color>
     <color name="text_color_icon">#212121</color>
 
+    <color name="border_gray">#D3D3D3</color>
+    <color name="txt_white">#FFFFFF</color>
 
-    <color name="one">#F0F2DD</color>
-    <color name="two">#E1E3AC</color>
-    <color name="three">#ADB1AB</color>
-    <color name="four">#CDDAC6</color>
+
+    <!--<color name="one">#F0F2DD</color>-->
+    <color name="one">#F0F0F0</color>
+    <color name="two">#FAF8F8</color>
+    <color name="three">#D0E0EB</color>
+    <color name="four">#EBF7F8</color>
     <color name="five">#A1BD92</color>
 
 </resources>

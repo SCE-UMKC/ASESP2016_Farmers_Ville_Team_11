@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mongodb.BasicDBObject;
@@ -39,7 +40,7 @@ public class SellerFragment extends Fragment  implements OnClickListener, Adapte
     Bitmap photo;
     ImageView sellerProductImage;
     private Spinner spinnerUnits;
-    private Button post;
+    private TextView post;
     EditText productName;
     EditText quantity;
     EditText description;
@@ -60,7 +61,7 @@ public class SellerFragment extends Fragment  implements OnClickListener, Adapte
         sellerProductImage = (ImageView) view.findViewById(R.id.imageValue);
         sellerProductImage.setImageDrawable(getResources().getDrawable(R.drawable.cameraicon));
         sellerProductImage.setOnClickListener(this);
-        post = (Button)view.findViewById(R.id.btnSellerSubmit);
+        post = (TextView)view.findViewById(R.id.btnSellerSubmit);
         productName = (EditText)view.findViewById(R.id.product);
         quantity = (EditText)view.findViewById(R.id.unitsValue);
         description = (EditText)view.findViewById(R.id.descriptionValue);
@@ -97,6 +98,23 @@ public class SellerFragment extends Fragment  implements OnClickListener, Adapte
 
     public void saveDetails(View v)  {
 
+        if(productName.getText().toString().isEmpty() || productName.getText().toString().length() < 3){
+            productName.setError("enter at least 3 characters");
+            Toast.makeText(v.getContext(), "Try Again!!!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(quantity.getText().toString().isEmpty() ){
+            quantity.setError("enter quantity");
+            Toast.makeText(v.getContext(), "Try Again!!!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(description.getText().toString().isEmpty()){
+            description.setError("Enter some info");
+            Toast.makeText(v.getContext(), "Try Again!!!", Toast.LENGTH_SHORT).show();
+            return;
+        }
         final ProgressDialog progressDialog = new ProgressDialog(getContext(),
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);

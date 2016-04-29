@@ -22,12 +22,25 @@
         android:paddingTop="20dp"
         android:scaleType="centerCrop" />
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:text="Change"
+    <!--<Button-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Change"-->
+        <!--android:id="@+id/btnChangeImage"-->
+        <!--android:onClick="ChangeImageM" />-->
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="150dp"
         android:id="@+id/btnChangeImage"
-        android:onClick="ChangeImageM" />
+        android:onClick="ChangeImageM"
+        android:layout_height="40dp"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="Change"
+        android:background="@drawable/txtview"
+        android:textColor="@color/txt_white" />
 
 </LinearLayout>

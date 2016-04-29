@@ -9,11 +9,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Account extends AppCompatActivity {
 
 
-    private Button changePassword, changeEmail, changePic, changeName, changeAddress, changeNumber;
+    private TextView changePassword, changeEmail, changePic, changeName, changeAddress, changeNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +23,7 @@ public class Account extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        changeEmail = (Button)findViewById(R.id.btnChangeEmail);
+        changeEmail = (TextView)findViewById(R.id.btnChangeEmail);
         changeEmail.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -32,7 +33,7 @@ public class Account extends AppCompatActivity {
                 }
         );
 
-        changePassword = (Button)findViewById(R.id.btnChangePassword);
+        changePassword = (TextView)findViewById(R.id.btnChangePassword);
         changePassword.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -42,7 +43,7 @@ public class Account extends AppCompatActivity {
                 }
         );
 
-        changeNumber = (Button)findViewById(R.id.btnChangeNumber);
+        changeNumber = (TextView)findViewById(R.id.btnChangeNumber);
         changeNumber.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -52,7 +53,7 @@ public class Account extends AppCompatActivity {
                 }
         );
 
-        changeName = (Button)findViewById(R.id.btnChangeName);
+        changeName = (TextView)findViewById(R.id.btnChangeName);
         changeName.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -62,7 +63,7 @@ public class Account extends AppCompatActivity {
                 }
         );
 
-        changeAddress = (Button)findViewById(R.id.btnChangeAddress);
+        changeAddress = (TextView)findViewById(R.id.btnChangeAddress);
         changeAddress.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -72,7 +73,7 @@ public class Account extends AppCompatActivity {
                 }
         );
 
-        changePic = (Button)findViewById(R.id.btnChangePic);
+        changePic = (TextView)findViewById(R.id.btnChangePic);
         changePic.setOnClickListener(
                 new View.OnClickListener() {
                     @Override

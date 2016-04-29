@@ -10,4 +10,6 @@
     <dimen name="nav_header_vertical_spacing">5dp</dimen>
     <dimen name="nav_header_height">210dp</dimen>
     <dimen name="connection_status_padding">8dp</dimen>
+
+    <dimen name="accountMargin">12dp</dimen>
 </resources>

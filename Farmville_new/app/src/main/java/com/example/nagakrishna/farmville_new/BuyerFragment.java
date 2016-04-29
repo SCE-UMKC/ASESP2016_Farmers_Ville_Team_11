@@ -19,6 +19,8 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -112,6 +114,7 @@ public class BuyerFragment extends Fragment {
                 holder.quanity = (TextView) convertView.findViewById(R.id.listQuantityBuyer);
                 holder.desciption = (TextView) convertView.findViewById(R.id.listDescriptionBuyer);
                 holder.imageView = (ImageView) convertView.findViewById(R.id.listImageViewBuyer);
+                holder.txtQuantity = (TextView)convertView.findViewById(R.id.txtQuantityBuyer);
                 convertView.setTag(holder);
             }
             else{
@@ -130,10 +133,15 @@ public class BuyerFragment extends Fragment {
                 holder.imageView.setImageDrawable(getResources().getDrawable(R.drawable.image_not_available));
             }
 
+            if (position % 2 == 0) {
+                convertView.setBackgroundColor(convertView.getResources().getColor(R.color.three));
+            } else if (position % 2 == 1) {
+                convertView.setBackgroundColor(convertView.getResources().getColor(R.color.four));}
             holder.imageView.setOnClickListener(mOnTitleClickListener_image);
             holder.product.setOnClickListener(detailsListener);
             holder.quanity.setOnClickListener(detailsListener);
             holder.desciption.setOnClickListener(detailsListener);
+            holder.txtQuantity.setOnClickListener(detailsListener);
 
 
             return convertView;
@@ -145,6 +153,7 @@ public class BuyerFragment extends Fragment {
             TextView quanity;
             TextView desciption;
             ImageView imageView;
+             TextView txtQuantity;
         }
 //
         public View.OnClickListener mOnTitleClickListener_image = new View.OnClickListener() {

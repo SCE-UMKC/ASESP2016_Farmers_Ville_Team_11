@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -40,7 +41,8 @@ public class SellersDetails extends AppCompatActivity {
     private TextView txtnameText, txtnumberText, txtaddressText;
     private String returnValues;
     private String fullname, address, number, reviews;
-    private Button btnChat;
+    private TextView btnChat;
+    private LinearLayout ly;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +55,11 @@ public class SellersDetails extends AppCompatActivity {
         nameText = (TextView) findViewById(R.id.txtFullnameValue);
         numberText = (TextView) findViewById(R.id.txtNumberValue);
         addressText = (TextView) findViewById(R.id.txtAddressValue);
-        txtnameText = (TextView) findViewById(R.id.txtFullname);
-        txtnumberText = (TextView) findViewById(R.id.txtNumber);
-        txtaddressText = (TextView) findViewById(R.id.txtAddress);
-        btnChat = (Button)findViewById(R.id.btnChat);
+        ly = (LinearLayout)findViewById(R.id.lySellerDetails);
+//        txtnameText = (TextView) findViewById(R.id.txtFullname);
+//        txtnumberText = (TextView) findViewById(R.id.txtNumber);
+//        txtaddressText = (TextView) findViewById(R.id.txtAddress);
+        btnChat = (TextView)findViewById(R.id.btnChat);
         Bundle bundle = getIntent().getExtras();
         String email = bundle.getString("SellerEmail");
         final ProgressDialog progressDialog = new ProgressDialog(this,
@@ -71,10 +74,11 @@ public class SellersDetails extends AppCompatActivity {
                 try {
                     progressDialog.dismiss();
                     returnValues = str;
-                    txtnameText.setVisibility(View.VISIBLE);
-                    txtnumberText.setVisibility(View.VISIBLE);
-                    txtaddressText.setVisibility(View.VISIBLE);
-                    btnChat.setVisibility(View.VISIBLE);
+//                    txtnameText.setVisibility(View.VISIBLE);
+//                    txtnumberText.setVisibility(View.VISIBLE);
+//                    txtaddressText.setVisibility(View.VISIBLE);
+                    ly.setVisibility(View.VISIBLE);
+//                    btnChat.setVisibility(View.VISIBLE);
                     JSONArray jsonArray = new JSONArray(returnValues);
                     JSONObject jsonObject = jsonArray.getJSONObject(0);
                     fullname = jsonObject.getString("fullname");
@@ -83,7 +87,11 @@ public class SellersDetails extends AppCompatActivity {
                     nameText.setText(fullname);
                     numberText.setText(number);
                     addressText.setText(address);
+                    btnChat.setText("  Chat with " + fullname+"  ");
                 } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                catch (Exception e){
                     e.printStackTrace();
                 }
             }
@@ -134,6 +142,9 @@ public class SellersDetails extends AppCompatActivity {
     }
 
     public void StartMapsIntent(View v){
+        if(addressText.getText().toString().equals("no address")){
+            return;
+        }
         Intent geoIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q="
                 +addressText.getText().toString()));
         startActivity(geoIntent);

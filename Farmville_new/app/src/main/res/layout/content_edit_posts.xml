@@ -73,7 +73,7 @@
             android:layout_width="match_parent"
             android:maxLength="2000"
             android:maxLines="4"
-            android:textSize="25dp" />
+            android:textSize="@dimen/fontsize"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -107,12 +107,23 @@
         android:layout_width="wrap_content"
         android:paddingTop="20dp">
 
-        <Button
-        android:id="@+id/btnUpdateEditPost"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Update"
-        android:nestedScrollingEnabled="true"
-            android:onClick="UpdateData" />
+        <!--<Button-->
+        <!--android:id="@+id/btnUpdateEditPost"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:text="Update"-->
+        <!--android:nestedScrollingEnabled="true"-->
+        <!--android:onClick="UpdateData" />-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/btnUpdateEditPost"
+            android:onClick="UpdateData"
+            android:layout_height="40dp"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="   Update   "
+            android:background="@drawable/txtview"
+            android:textColor="@color/txt_white" />
     </RelativeLayout>
 </LinearLayout>

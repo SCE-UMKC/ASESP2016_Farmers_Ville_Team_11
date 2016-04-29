@@ -46,19 +46,45 @@
             android:hint="Address" />
     </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+    <!--<Button-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:id="@+id/btnGetCurrentAddress"-->
+        <!--android:text="Current Address"-->
+        <!--android:onClick="GetCurrentAddress" />-->
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="180dp"
         android:id="@+id/btnGetCurrentAddress"
-        android:text="Current Address"
-        android:onClick="GetCurrentAddress" />
-    <Button
-        android:layout_width="200dp"
+        android:onClick="GetCurrentAddress"
+        android:layout_height="40dp"
+        android:textSize="20sp"
+        android:gravity="center"
         android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:text="Change"
+        android:text="Current Address"
+        android:background="@drawable/txtview"
+        android:textColor="@color/txt_white" />
+    <!--<Button-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Change"-->
+        <!--android:id="@+id/btnChangeAddress"-->
+        <!--android:onClick="ChangeAddressM" />-->
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="180dp"
         android:id="@+id/btnChangeAddress"
-        android:onClick="ChangeAddressM" />
+        android:onClick="ChangeAddressM"
+        android:layout_height="40dp"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="Change"
+        android:background="@drawable/txtview"
+        android:textColor="@color/txt_white" />
 
 </LinearLayout>

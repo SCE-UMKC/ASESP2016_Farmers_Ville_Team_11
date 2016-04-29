@@ -4,55 +4,160 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
+
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.nagakrishna.farmville_new.Account"
     tools:showIn="@layout/activity_account"
     android:orientation="vertical">
 
-    <Button
-        android:layout_width="200dp"
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Change Password"
-        android:id="@+id/btnChangePassword"
-        android:layout_gravity="center"/>
+        android:paddingLeft="@dimen/accountMargin"
+        android:paddingRight="@dimen/accountMargin"
+        android:paddingBottom="@dimen/accountMargin"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:text="Change Name"
+        android:id="@+id/btnChangeName"/>
 
-    <Button
-        android:layout_width="200dp"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:background="@color/divider" />
+
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/accountMargin"
+        android:paddingRight="@dimen/accountMargin"
+        android:paddingBottom="@dimen/accountMargin"
+        android:paddingTop="@dimen/accountMargin"
         android:text="Change Email"
         android:id="@+id/btnChangeEmail"
-        android:layout_gravity="center"/>
+        android:textSize="16sp"
+        android:textStyle="normal"/>
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Change Name"
-        android:id="@+id/btnChangeName"
-        android:layout_gravity="center"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:background="@color/divider" />
 
-    <Button
-        android:layout_width="200dp"
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/accountMargin"
+        android:paddingRight="@dimen/accountMargin"
+        android:paddingBottom="@dimen/accountMargin"
+        android:paddingTop="@dimen/accountMargin"
+        android:text="Change Password"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:id="@+id/btnChangePassword"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:background="@color/divider" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/accountMargin"
+        android:paddingRight="@dimen/accountMargin"
+        android:paddingBottom="@dimen/accountMargin"
+        android:paddingTop="@dimen/accountMargin"
+        android:textSize="16sp"
+        android:textStyle="normal"
         android:text="Change Address"
-        android:id="@+id/btnChangeAddress"
-        android:layout_gravity="center"/>
+        android:id="@+id/btnChangeAddress"/>
 
-    <Button
-        android:layout_width="200dp"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:background="@color/divider" />
+
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/accountMargin"
+        android:paddingRight="@dimen/accountMargin"
+        android:paddingBottom="@dimen/accountMargin"
+        android:paddingTop="@dimen/accountMargin"
         android:text="Change Profile Picture"
-        android:id="@+id/btnChangePic"
-        android:layout_gravity="center"/>
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:id="@+id/btnChangePic"/>
 
-    <Button
-        android:layout_width="200dp"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:background="@color/divider" />
+
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Change Number"
-        android:id="@+id/btnChangeNumber"
-        android:layout_gravity="center"/>
+        android:paddingLeft="@dimen/accountMargin"
+        android:paddingRight="@dimen/accountMargin"
+        android:paddingBottom="@dimen/accountMargin"
+        android:paddingTop="@dimen/accountMargin"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:text="Change Contact Number"
+        android:id="@+id/btnChangeNumber"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:background="@color/divider" />
+
+    <!--<Button-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Change Password"-->
+        <!--android:id="@+id/btnChangePassword"-->
+        <!--android:layout_gravity="center"/>-->
+
+    <!--<Button-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Change Email"-->
+        <!--android:id="@+id/btnChangeEmail"-->
+        <!--android:layout_gravity="center"/>-->
+
+    <!--<Button-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Change Name"-->
+        <!--android:id="@+id/btnChangeName"-->
+        <!--android:layout_gravity="center"/>-->
+
+    <!--<Button-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Change Address"-->
+        <!--android:id="@+id/btnChangeAddress"-->
+        <!--android:layout_gravity="center"/>-->
+
+    <!--<Button-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Change Profile Picture"-->
+        <!--android:id="@+id/btnChangePic"-->
+        <!--android:layout_gravity="center"/>-->
+
+    <!--<Button-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Change Number"-->
+        <!--android:id="@+id/btnChangeNumber"-->
+        <!--android:layout_gravity="center"/>-->
 
 </LinearLayout>

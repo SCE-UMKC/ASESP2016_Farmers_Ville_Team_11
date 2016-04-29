@@ -77,6 +77,14 @@ public class VenueCustomListAdapter extends BaseAdapter {
             }
         });
 
+        name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent geoIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q="
+                        + address.getText().toString()));
+                v.getContext().startActivity(geoIntent);
+            }
+        });
         return convertView;
     }
 }

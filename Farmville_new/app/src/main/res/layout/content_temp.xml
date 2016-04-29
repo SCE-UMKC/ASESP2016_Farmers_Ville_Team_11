@@ -10,9 +10,9 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:layout_weight="100"
         android:layout_width="match_parent"
-        android:layout_height="356dp"
-        android:layout_weight="9.52">
+        android:layout_height="0dp">
 
         <ListView
             android:layout_width="wrap_content"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/mainText"
             android:id="@android:id/empty"
-            android:text="There is no data"
+            android:text="No Posts"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -35,25 +35,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_weight="1">
+        android:background="@color/one"
+        android:id="@+id/lySellerPosts"
+        android:visibility="invisible">
 
-        <Button
-            android:id="@+id/btnEdit"
-            android:layout_width="0.0dip" android:layout_height="fill_parent"
-            android:text="Edit"
-            android:layout_weight="1.0"
-            android:textSize="20sp"
-            android:onClick="BtnEditPost"
-            android:visibility="invisible"/>
+       <TextView
+           android:layout_width="wrap_content"
+           android:id="@+id/btnEdit"
+           android:onClick="BtnEditPost"
+           android:layout_height="40dp"
+           android:layout_weight="1"
+           android:textSize="20sp"
+           android:gravity="center"
+           android:text="Edit"
+           android:background="@drawable/txtview"
+           android:textColor="@color/txt_white"
+           android:visibility="visible"/>
 
-        <Button
+        <TextView
+            android:layout_width="wrap_content"
             android:id="@+id/btnDelete"
-            android:layout_width="0.0dip" android:layout_height="fill_parent"
-            android:text="Delete"
-            android:layout_weight="1.0"
-            android:textSize="20sp"
             android:onClick="BtnDeletePost"
-            android:visibility="invisible"/>
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textColor="@color/txt_white"
+            android:gravity="center"
+            android:text="Delete"
+            android:background="@drawable/txtview"
+            android:visibility="visible" />
     </LinearLayout>
 
 </LinearLayout>

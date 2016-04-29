@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -51,7 +52,8 @@ public class temp extends ListActivity {
     public ListView listView;
     SellerPostsCustomListAdapter adapter;
     public int selectedIndex = -1;
-    private Button btnDelete, btnEdit;
+    private TextView btnDelete, btnEdit, emptyList;
+    private LinearLayout ly;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,8 +77,11 @@ public class temp extends ListActivity {
 //            e.printStackTrace();
 //        }
 
-        btnEdit = (Button)findViewById(R.id.btnEdit);
-        btnDelete = (Button)findViewById(R.id.btnDelete);
+        btnEdit = (TextView)findViewById(R.id.btnEdit);
+        btnDelete = (TextView)findViewById(R.id.btnDelete);
+        ly = (LinearLayout)findViewById(R.id.lySellerPosts);
+//        emptyList = (TextView)findViewById(R.id.empty);
+
 
         final ProgressDialog progressDialog = new ProgressDialog(this,
                 R.style.AppTheme_Dark_Dialog);
@@ -89,8 +94,12 @@ public class temp extends ListActivity {
                 progressDialog.dismiss();
                 returnValues = sellerDetailses;
                 if(returnValues.size()>0){
-                    btnEdit.setVisibility(View.VISIBLE);
-                    btnDelete.setVisibility(View.VISIBLE);
+//                    btnEdit.setVisibility(View.VISIBLE);
+//                    btnDelete.setVisibility(View.VISIBLE);
+                    ly.setVisibility(View.VISIBLE);
+                }
+                else {
+//                    emptyList.setVisibility(View.VISIBLE);
                 }
                 for(SellerDetails x: returnValues){
                     itemlist.add(x);
