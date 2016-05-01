@@ -16,6 +16,8 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,9 +36,7 @@ public class Chat extends AppCompatActivity implements View.OnClickListener,
         MessageDataSource.MessagesCallbacks{
 
     public static final String USER_EXTRA = "USER";
-
     public static final String TAG = "ChatActivity";
-
     private ArrayList<Message> mMessages, msgs;
     private MessagesAdapter mAdapter;
     private String mRecipient;
@@ -45,7 +45,6 @@ public class Chat extends AppCompatActivity implements View.OnClickListener,
     private String mConvoId, name, chatName;
     private MessageDataSource.MessagesListener mListener;
     public static final String MY_PREFS_NAME = "MyPrefsFile";
-
     private String ReferenceUrl = "https://farmville.firebaseio.com/";
 
     @Override
@@ -58,6 +57,12 @@ public class Chat extends AppCompatActivity implements View.OnClickListener,
         setSupportActionBar(toolbar);
         toolbar.setTitle(chatName);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Window window = this.getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.setStatusBarColor(getResources().getColor(R.color.colorStatusBar));
+        }
         SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, 0);
         name = prefs.getString("name", null);
         mRecipient = chatName;

@@ -2,205 +2,164 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="15dp"
+    android:paddingTop="5dp"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal">
 
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:textSize="@dimen/fontsize"
-            android:id="@+id/txtDate"
-            android:text="Date"
-            android:width="120dp"/>
+       <LinearLayout
+           android:layout_width="140dp"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/listDate"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/txtDate"
-            android:layout_width="match_parent"
-            android:maxLines="1"
-            android:textSize="@dimen/fontsize" />
-    </RelativeLayout>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/listTemperature"
+               android:text="17.6 C"
+               android:textStyle="bold"
+               android:textSize="35sp"/>
 
-    <RelativeLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+           <ImageView
+               android:id="@+id/imageViewIcon"
+               android:layout_height="wrap_content"
+               android:layout_width="wrap_content"
+               android:minHeight="80dp"
+               android:minWidth="100dp" />
 
-        <TextView
-            android:id="@+id/txtTemperature"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="Temperature"
-            android:textSize="@dimen/fontsize"
-            android:width="120dp" />
+       </LinearLayout>
+       <LinearLayout
+           android:layout_width="150dp"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/listTemperature"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/txtTemperature"
-            android:layout_width="match_parent"
-            android:maxLines="1"
-            android:textSize="@dimen/fontsize" />
-    </RelativeLayout>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:paddingTop="5dp"
+               android:text="Desc d"
+               android:textStyle="normal"
+               android:maxLines="2"
+               android:textSize="20sp"
+               android:paddingBottom="20dp"
+               android:id="@+id/listDescription"/>
 
-    <RelativeLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/listTempHigh"
+               android:text="20.55C"
+               android:textSize="20sp"
+               android:drawableLeft="@drawable/up_arrow" />
 
-        <TextView
-            android:id="@+id/txtDescription"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="Description"
-            android:textSize="@dimen/fontsize"
-            android:width="120dp" />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/listTempLow"
+               android:text="20.55C"
+               android:textSize="20sp"
+               android:drawableLeft="@drawable/down_arrow" />
+       </LinearLayout>
 
-        <TextView
-            android:id="@+id/listDescription"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/txtDescription"
-            android:layout_width="match_parent"
-            android:maxLines="1"
-            android:textSize="@dimen/fontsize" />
-    </RelativeLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:paddingLeft="20dp"
+               android:drawableLeft="@drawable/datetime"
+               android:paddingTop="10dp"/>
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/listTime"
+               android:text="09:00am"
+               android:paddingTop="5dp"/>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/listDate"
+               android:paddingTop="5dp"
+               android:text="11/11/2011"/>
+
+       </LinearLayout>
+
+   </LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
         android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_weight="1.0"
-        android:layout_width="wrap_content"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content">
-
-            <TextView
-                android:id="@+id/txtMain"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Main"
-                android:textSize="@dimen/fontsize"
-                android:width="120dp" />
-
-            <TextView
-                android:id="@+id/listMain"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/txtMain"
-                android:layout_width="wrap_content"
-                android:maxLines="1"
-                android:textSize="@dimen/fontsize"
-                android:width="@dimen/listwidth" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content">
-
-            <TextView
-                android:id="@+id/txtPressure"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Pressure"
-                android:textSize="@dimen/fontsize"
-                android:width="120dp" />
-
-            <TextView
-                android:id="@+id/listPressure"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/txtPressure"
-                android:layout_width="wrap_content"
-                android:maxLines="1"
-                android:textSize="@dimen/fontsize"
-                android:width="@dimen/listwidth" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content">
-
-            <TextView
-                android:id="@+id/txtHumidity"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Humidity"
-                android:textSize="@dimen/fontsize"
-                android:width="120dp" />
-
-            <TextView
-                android:id="@+id/listHumidity"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/txtHumidity"
-                android:layout_width="wrap_content"
-                android:maxLines="1"
-                android:textSize="@dimen/fontsize"
-                android:width="@dimen/listwidth" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content">
-
-            <TextView
-                android:id="@+id/txtWindSpeed"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Wind Speed"
-                android:textSize="@dimen/fontsize"
-                android:width="120dp" />
-
-            <TextView
-                android:id="@+id/listWindSpeed"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/txtWindSpeed"
-                android:layout_width="wrap_content"
-                android:maxLines="1"
-                android:textSize="@dimen/fontsize"
-                android:width="@dimen/listwidth" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content">
-
-            <TextView
-                android:id="@+id/txtClouds"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Clouds"
-                android:textSize="@dimen/fontsize"
-                android:width="120dp" />
-
-            <TextView
-                android:id="@+id/listClouds"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/txtClouds"
-                android:layout_width="wrap_content"
-                android:maxLines="1"
-                android:textSize="@dimen/fontsize"
-                android:width="@dimen/listwidth" />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_weight="2.0"
-        android:layout_width="wrap_content">
-
-        <ImageView
-            android:id="@+id/imageViewIcon"
-            android:layout_height="wrap_content"
+        <TextView
             android:layout_width="wrap_content"
-            android:minHeight="150dp"
-            android:minWidth="150dp" />
+            android:layout_height="wrap_content"
+            android:text="Pressure"
+            android:gravity="left"
+            android:width="100dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Humidity"
+            android:gravity="left"
+            android:width="100dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wind Speed"
+            android:gravity="left"
+            android:width="100dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clouds"
+            android:gravity="left"
+            android:width="100dp"/>
+
     </LinearLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/listPressure"
+            android:gravity="left"
+            android:width="100dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/listHumidity"
+            android:gravity="left"
+            android:width="100dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/listWindSpeed"
+            android:gravity="left"
+            android:width="100dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/listClouds"
+            android:gravity="left"
+            android:width="100dp"/>
+    </LinearLayout>
 </LinearLayout>

@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.Rect;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,6 +22,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -52,7 +55,12 @@ public class NavigationActvity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        Window window = this.getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.setStatusBarColor(getResources().getColor(R.color.colorStatusBar));
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -120,7 +128,7 @@ public class NavigationActvity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            moveTaskToBack(true);
         }
     }
 
@@ -182,7 +190,7 @@ public class NavigationActvity extends AppCompatActivity
         }else if (id == R.id.nav_posts) {
             startActivity(new Intent(this, temp.class));
         } else if (id == R.id.nav_about) {
-
+            startActivity(new Intent(this, About.class));
         } else if (id == R.id.nav_share) {
             Intent i=new Intent(android.content.Intent.ACTION_SEND);
             i.setType("text/plain");
@@ -211,14 +219,15 @@ public class NavigationActvity extends AppCompatActivity
     }
 
     public void Journal(View v) {
-        startActivity(new Intent(this, Chat.class));
+        startActivity(new Intent(this, Tech.class));
     }
 
     public void MarketPrices(View v) {
+        startActivity(new Intent(this, MarketPrices.class));
     }
 
     public void Suggestions(View v) {
-        startActivity(new Intent(this, ChatUsers.class));
+        startActivity(new Intent(this, Suggestions.class));
     }
 
     public void MarketPlaces(View v) {
@@ -253,4 +262,6 @@ public class NavigationActvity extends AppCompatActivity
     public void Posts(View v){
         startActivity(new Intent(this, Account.class));
     }
+
+
 }

@@ -3,6 +3,7 @@ package com.example.nagakrishna.farmville_new;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -15,7 +16,18 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+//import com.google.android.gms.auth.api.Auth;
+//import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+//import com.google.android.gms.common.ConnectionResult;
+//import com.google.android.gms.common.GooglePlayServicesUtil;
+//import com.google.android.gms.common.SignInButton;
+//import com.google.android.gms.common.api.GoogleApiClient;
+//import com.google.android.gms.plus.Plus;
+//import com.google.android.gms.plus.model.people.Person;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -33,7 +45,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.ExecutionException;
 
-public class LoginActivity extends AppCompatActivity {
+
+public class LoginActivity extends AppCompatActivity
+//        implements View.OnClickListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener
+{
 
     public static final String MY_PREFS_NAME = "MyPrefsFile";
     private static final String TAG = "LoginActivity";
@@ -43,7 +58,19 @@ public class LoginActivity extends AppCompatActivity {
     private String nameUser;
     private String emailUser;
     private String imageUser, numberUser, addressUser;
-//    private ProgressDialog progressDialog;
+
+//    private GoogleApiClient mGoogleApiClient;
+//
+//    private boolean mIntentInProgress;
+//    private boolean signedInUser;
+//    private ConnectionResult mConnectionResult;
+//    private SignInButton signinButton;
+//    private ImageView image;
+//    private TextView username, emailLabel;
+//
+//    private static final int RC_SIGN_IN = 0;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +82,16 @@ public class LoginActivity extends AppCompatActivity {
         passwordText = (EditText) findViewById(R.id.input_password);
         loginButton = (Button) findViewById(R.id.btn_login);
 
+//        signinButton = (SignInButton) findViewById(R.id.signin);
+//        signinButton.setOnClickListener(this);
+//
+//        mGoogleApiClient = new GoogleApiClient.Builder(this).addConnectionCallbacks(this).addOnConnectionFailedListener(this).addApi(Plus.API, Plus.PlusOptions.builder().build()).addScope(Plus.SCOPE_PLUS_LOGIN).build();
+
+
 
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -130,7 +165,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onLoginFailed() {
         Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_SHORT).show();
-
         loginButton.setEnabled(true);
     }
 
@@ -157,6 +191,132 @@ public class LoginActivity extends AppCompatActivity {
         return valid;
     }
 
+
+//
+//    @Override
+//    public void onConnectionSuspended(int cause) {
+//        mGoogleApiClient.connect();
+////        updateProfile(false);
+//    }
+//
+//    @Override
+//    public void onClick(View v) {
+//        switch (v.getId()) {
+//            case R.id.signin:
+//                googlePlusLogin();
+//                break;
+//        }
+//    }
+//
+//    public void signIn(View v) {
+//        googlePlusLogin();
+//    }
+//
+//    public void logout(View v) {
+//        googlePlusLogout();
+//    }
+//
+//    private void googlePlusLogin() {
+//        if (!mGoogleApiClient.isConnecting()) {
+//            signedInUser = true;
+//            resolveSignInError();
+//        }
+//    }
+//
+//    private void googlePlusLogout() {
+//        if (mGoogleApiClient.isConnected()) {
+//            Plus.AccountApi.clearDefaultAccount(mGoogleApiClient);
+//            mGoogleApiClient.disconnect();
+//            mGoogleApiClient.connect();
+////            updateProfile(false);
+//        }
+//    }
+//
+//
+//    @Override
+//    public void onConnectionFailed(ConnectionResult result) {
+//        if (!result.hasResolution()) {
+//            GooglePlayServicesUtil.getErrorDialog(result.getErrorCode(), this, 0).show();
+//            return;
+//        }
+//
+//        if (!mIntentInProgress) {
+//            // store mConnectionResult
+//            mConnectionResult = result;
+//
+//            if (signedInUser) {
+//                resolveSignInError();
+//            }
+//        }
+//    }
+//
+//    private void getProfileInformation() {
+//        try {
+//            if (Plus.PeopleApi.getCurrentPerson(mGoogleApiClient) != null) {
+//                Person currentPerson = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);
+//                String personName = currentPerson.getDisplayName();
+//                String personPhotoUrl = currentPerson.getImage().getUrl();
+//                String email = Plus.AccountApi.getAccountName(mGoogleApiClient);
+//
+////                username.setText(personName);
+////                emailLabel.setText(email);
+//
+////                new LoadProfileImage(image).execute(personPhotoUrl);
+//
+//                // update profile frame with new info about Google Account
+//                // profile
+////                updateProfile(true);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    @Override
+//    public void onConnected(Bundle arg0) {
+//        signedInUser = false;
+//        Toast.makeText(this, "Connected", Toast.LENGTH_LONG).show();
+//        getProfileInformation();
+//        startActivity(new Intent(this, NavigationActvity.class));
+//    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int responseCode, Intent intent) {
+//        switch (requestCode) {
+//            case RC_SIGN_IN:
+//                if (responseCode == RESULT_OK) {
+//                    signedInUser = false;
+//
+//                }
+//                mIntentInProgress = false;
+//                if (!mGoogleApiClient.isConnecting()) {
+//                    mGoogleApiClient.connect();
+//                }
+//                break;
+//        }
+//    }
+//    protected void onStart() {
+//        super.onStart();
+//        mGoogleApiClient.connect();
+//    }
+//
+//    protected void onStop() {
+//        super.onStop();
+//        if (mGoogleApiClient.isConnected()) {
+//            mGoogleApiClient.disconnect();
+//        }
+//    }
+//
+//    private void resolveSignInError() {
+//        if (mConnectionResult.hasResolution()) {
+//            try {
+//                mIntentInProgress = true;
+//                mConnectionResult.startResolutionForResult(this, RC_SIGN_IN);
+//            } catch (IntentSender.SendIntentException e) {
+//                mIntentInProgress = false;
+//                mGoogleApiClient.connect();
+//            }
+//        }
+//    }
 }
 
 class CallLogin extends AsyncTask<String, String, String>{

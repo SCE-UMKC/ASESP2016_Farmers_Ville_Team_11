@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Farmville_new</string>
+    <string name="app_name">Farmville</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_activity_weather">Weather</string>
@@ -78,4 +78,58 @@
     <string name="send">Send</string>
     <string name="title_activity_chat_users">Conversations</string>
     <string name="title_activity_sample">sample</string>
+    <string name="title_activity_tech">Journals</string>
+    <string name="gcm_defaultSenderId">274434180974</string>
+
+    <string-array name="vegetabes">
+        <item>Select </item>
+        <item>cotton</item>
+        <item>avocado</item>
+        <item>rice</item>
+        <item>asparagus</item>
+        <item>small-grains</item>
+        <item>spinach</item>
+        <item>pomegranate</item>
+        <item>alfalfa-hay</item>
+        <item>corn</item>
+        <item>tomatoes</item>
+        <item>potatoes</item>
+        <item>grapes</item>
+        <item>peach</item>
+    </string-array>
+
+    <string-array name="vegetables">
+        <item>Select Product</item>
+        <item>Acorn squash</item>
+        <item>Asparagus</item>
+        <item>Avocados</item>
+        <item>Black beans</item>
+        <item>Broccoli</item>
+        <item>Cabbage</item>
+        <item>Carrot</item>
+        <item>Cauliflower</item>
+        <item>Cucumbers</item>
+        <item>Green beans</item>
+        <item>lettuce</item>
+        <item>Mustard greens</item>
+        <item>Onions</item>
+        <item>Potatoes</item>
+        <item>Spinach</item>
+        <item>Tomatoes</item>
+    </string-array>
+    <string name="title_activity_market_prices">Market Prices</string>
+    <string name="title_activity_about">About</string>
+    <string name="features">\u2022 This app helps Farmer to Market his crops/products. He can directly post the details of product in App, all the details will be viewed by Registered users. Users can view details of seller and chat with sellers.
+
+\u2022 Near by market locations are displayed, where farmer can consider those locations to sell his crops along with Current market prices.
+
+\u2022 Users are notified with notification on product price changes.
+
+\u2022 This App also helps Farmer in cultivating crops effectively by assiting with Weather forecast details for coming 5 days, suggesting pesticides and insecticides for each crop, Current news and Journals.
+</string>
+    <string name="technologies">"\u2022 Android
+\u2022 Firebase
+\u2022 Amazaon Web Services
+\u2022 Mongo Lab
+\u2022 Google Cloud Messaging"</string>
 </resources>

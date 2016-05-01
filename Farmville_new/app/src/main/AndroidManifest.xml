@@ -13,6 +13,13 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <permission
+        android:name="com.example.nagakrishna.farmville_new.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.example.nagakrishna.farmville_new.permission.C2D_MESSAGE" />
 
     <application
         android:name=".AwesomeFireBase"
@@ -68,10 +75,6 @@
             android:label="@string/title_activity_sellers_details"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Posts"
-            android:label="@string/title_activity_posts"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".temp"
             android:label="@string/title_activity_temp"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -120,8 +123,47 @@
             android:label="@string/title_activity_chat_users"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".sample"
-            android:label="@string/title_activity_sample"
+            android:name=".Tech"
+            android:label="@string/title_activity_tech"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Suggestions"
+            android:label="@string/title_activity_suggestions"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MarketPrices"
+            android:label="@string/title_activity_market_prices"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.gnirt69.gcmexample" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".GCMPushReceiverService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".GCMRegistrationIntentService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".About"
+            android:label="@string/title_activity_about"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

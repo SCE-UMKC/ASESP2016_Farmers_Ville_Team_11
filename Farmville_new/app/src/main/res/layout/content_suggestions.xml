@@ -1,44 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:layout_height="wrap_content"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.nagakrishna.farmville_new.Suggestions"
-    tools:showIn="@layout/activity_suggestions">
+    android:orientation="vertical">
 
-    <EditText
+    <Spinner
+        android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editTextWord"
-        android:gravity="center"
-        android:layout_below="@+id/button_new"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:entries="@array/vegetabes"
+        android:focusable="false"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginBottom="15dp"
+        android:focusableInTouchMode="true"></Spinner>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/textViewRhymes"
-        android:gravity="center"
-        android:layout_below="@+id/editTextWord"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="search crop"
+        android:layout_width="150dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/button_new"
         android:onClick="getRhymesNew"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:textSize="15sp"
+        android:textColor="@color/txt_white"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="Search Crop"
+        android:background="@drawable/txtview"
+        android:visibility="visible" />
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lySuggestions"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingTop="10dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/lySuggestions1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="125dp"
+                android:text="Fertilizers: "
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:id="@+id/textViewRhymes"
+                android:textSize="20sp"
+                android:paddingBottom="5dp"
+                android:onClick="text_msg"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="@color/divider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingTop="10dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/lySuggestions2"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="125dp"
+                android:text="Insecticides: "
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:id="@+id/textViewmonth"
+                android:textSize="20sp"
+                android:paddingBottom="5dp"
+                android:onClick="text_insecticide"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="@color/divider" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingTop="10dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/lySuggestions3"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <TextView
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:width="150dp"
+                android:text="Temperature: "
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:id="@+id/textViewtemp"
+                android:textSize="20sp"
+                android:paddingBottom="5dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="@color/divider" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:id="@+id/textView4"
+            android:paddingBottom="5dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="@color/divider" />
+
+    </LinearLayout>
+
+
+
+
+
+
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="20sp"-->
+        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+        <!--android:id="@+id/textViewtemp"-->
+
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+        <!--android:text="Temperature"-->
+        <!--android:textSize="20sp"-->
+
+        <!--android:id="@+id/textView"-->
+        <!--android:layout_alignBottom="@+id/textViewtemp"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true" />-->
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+        <!--android:text="Fertilizers"-->
+        <!--android:textSize="20sp"-->
+        <!--android:id="@+id/textView2"-->
+        <!--android:layout_below="@+id/button_new"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginTop="41dp" />-->
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+        <!--android:text="Month"-->
+        <!--android:id="@+id/textView3"-->
+        <!--android:textSize="20sp"-->
+        <!--android:layout_above="@+id/textViewtemp"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true" />-->
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="20sp"-->
+        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+        <!--android:id="@+id/textViewmonth"-->
+        <!--android:layout_below="@+id/textViewRhymes"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_toEndOf="@+id/button_new"-->
+        <!--android:layout_toRightOf="@+id/button_new"/>-->
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="20sp"-->
+        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+        <!--android:id="@+id/textView4"-->
+        <!--android:layout_below="@+id/textView"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_toEndOf="@+id/textView"-->
+        <!--android:layout_toRightOf="@+id/textView"-->
+        <!--android:layout_alignLeft="@+id/spinner"-->
+        <!--android:layout_alignStart="@+id/spinner" />-->
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="20sp"-->
+        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+        <!--android:id="@+id/textView5"-->
+        <!--android:text="select crop"-->
+        <!--android:layout_above="@+id/textViewRhymes"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true" />-->
+   <!-- -->
+
+</LinearLayout>

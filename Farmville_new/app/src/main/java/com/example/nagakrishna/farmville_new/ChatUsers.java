@@ -4,18 +4,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+//import android.support.v7.widget.LinearLayoutManager;
+//import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -38,7 +41,6 @@ public class ChatUsers extends AppCompatActivity {
     private Firebase mFirebaseMessagesChat;
     private ChildEventListener mListenerUsers;
     private List<String> mUsersKeyList;
-    private UsersChatAdapter mUsersChatAdapter;
     private ChatListAdapter adapter;
     ListView listView;
     private String currentUsername, chatUsername;
@@ -52,6 +54,12 @@ public class ChatUsers extends AppCompatActivity {
         setSupportActionBar(toolbar);
 //        toolbar.setTitle("Conversations");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Window window = this.getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.setStatusBarColor(getResources().getColor(R.color.colorStatusBar));
+        }
         SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, 0);
         currentUsername = prefs.getString("name", null);
 

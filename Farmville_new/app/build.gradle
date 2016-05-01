@@ -1,8 +1,9 @@
 apply plugin: 'com.android.application'
+//apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.3"
     useLibrary 'org.apache.http.legacy'
 
     defaultConfig {
@@ -11,6 +12,13 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+//         Enabling multidex support.
+        multiDexEnabled true
+    }
+
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "3g"
     }
     buildTypes {
         release {
@@ -36,4 +44,7 @@ dependencies {
     compile 'org.apache.httpcomponents:httpclient:4.5'
     compile 'com.firebase:firebase-client-android:2.4.1+'
     compile 'de.hdodenhof:circleimageview:2.0.0'
+
+    compile 'com.google.android.gms:play-services:8.3.0'
+//    compile 'com.android.support:multidex:1.0.0'
 }

@@ -17,7 +17,24 @@ public class ForecastDay {
     public String windspeed;
     public String date;
     public String time;
+    public String temp_high;
+    public String temp_low;
 
+    public void setTemp_low(Double temp_low) {
+        this.temp_low = new DecimalFormat("#.###").format(temp_low - 273.0d) + " \u00b0C";
+    }
+
+    public void setTemp_high(Double temp_high) {
+        this.temp_high = new DecimalFormat("#.###").format(temp_high - 273.0d) + " \u00b0C";
+    }
+
+    public String getTemp_high() {
+        return temp_high;
+    }
+
+    public String getTemp_low() {
+        return temp_low;
+    }
     public void setDate(String date) {
         this.date = date;
     }
@@ -55,8 +72,17 @@ public class ForecastDay {
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        char[] charArray = description.toCharArray();
+        charArray[0] = Character.toUpperCase(charArray[0]);
+        for (int i = 1; i < charArray.length; i++) {
+            if (charArray[i] == ' ') {
+                charArray[i + 1] = Character.toUpperCase(charArray[i + 1]);
+            }
+        }
+        String result = new String(charArray);
+        this.description = result;
     }
+
 
     public String getPressure() {
         return this.pressure;

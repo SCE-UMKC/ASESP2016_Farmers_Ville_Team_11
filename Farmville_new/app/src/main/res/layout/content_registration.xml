@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true"
-    android:background="#f3c0c0">
+    android:background="#0D6759">
 
     <LinearLayout
         android:orientation="vertical"
@@ -20,10 +20,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:theme="@style/LoginTheme"
             android:layout_marginBottom="8dp">
             <EditText android:id="@+id/input_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/txt_white"
                 android:inputType="textCapWords"
                 android:hint="Name" />
         </android.support.design.widget.TextInputLayout>
@@ -33,10 +36,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:theme="@style/LoginTheme"
             android:layout_marginBottom="8dp">
             <EditText android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/txt_white"
                 android:inputType="textEmailAddress"
                 android:hint="Email" />
         </android.support.design.widget.TextInputLayout>
@@ -46,10 +52,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:theme="@style/LoginTheme"
             android:layout_marginBottom="8dp">
             <EditText android:id="@+id/input_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/txt_white"
                 android:inputType="phone"
                 android:hint="Contact Number" />
         </android.support.design.widget.TextInputLayout>
@@ -59,10 +68,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:theme="@style/LoginTheme"
             android:layout_marginBottom="8dp">
             <EditText android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/txt_white"
                 android:inputType="textPassword"
                 android:hint="Password"/>
         </android.support.design.widget.TextInputLayout>
@@ -72,10 +84,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:theme="@style/LoginTheme"
             android:layout_marginBottom="8dp">
             <EditText android:id="@+id/input_cpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/txt_white"
                 android:inputType="textPassword"
                 android:hint="Confirm Password"/>
         </android.support.design.widget.TextInputLayout>
@@ -96,6 +111,7 @@
             android:layout_marginBottom="24dp"
             android:text="Already a member? Login"
             android:gravity="center"
+            android:textColor="#d8e7e7"
             android:textSize="16dip"
             android:onClick="Login" />
 

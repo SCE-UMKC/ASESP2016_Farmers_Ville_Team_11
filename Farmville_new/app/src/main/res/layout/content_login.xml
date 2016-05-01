@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true"
-    android:background="@drawable/rice">
+    android:background="#0D6759">
 
     <LinearLayout
         android:orientation="vertical"
@@ -21,6 +21,7 @@
 
         <!-- Email Label -->
         <android.support.design.widget.TextInputLayout
+            android:theme="@style/LoginTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -28,6 +29,8 @@
             <EditText android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/txt_white"
                 android:inputType="textEmailAddress"
                 android:hint="Email" />
         </android.support.design.widget.TextInputLayout>
@@ -36,11 +39,14 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:theme="@style/LoginTheme"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <EditText android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/txt_white"
                 android:inputType="textPassword"
                 android:hint="Password"/>
         </android.support.design.widget.TextInputLayout>
@@ -60,9 +66,16 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:text="No account yet? Create one"
+            android:textColor="#d8e7e7"
             android:gravity="center"
             android:textSize="16dip"
             android:onClick="SignUp"/>
 
+        <!--<com.google.android.gms.common.SignInButton-->
+            <!--android:id="@+id/signin"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="20dp"-->
+            <!--android:textSize="18dp" />-->
     </LinearLayout>
 </ScrollView>

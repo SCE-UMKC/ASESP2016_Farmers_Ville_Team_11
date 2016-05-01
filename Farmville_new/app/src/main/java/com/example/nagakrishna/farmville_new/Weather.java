@@ -2,6 +2,7 @@ package com.example.nagakrishna.farmville_new;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,6 +12,8 @@ import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -38,11 +41,14 @@ public class Weather extends AppCompatActivity {
         setContentView(R.layout.activity_weather);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        this.mContext = getBaseContext();
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setIcon((int) R.drawable.a01d);
-//        getSupportActionBar().setHomeButtonEnabled(true);
-//        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        Window window = this.getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.setStatusBarColor(getResources().getColor(R.color.colorStatusBar));
+        }
         GetGps getGps = new GetGps(getApplicationContext());
         this.latitude = getGps.GetLatitude();
         this.longitude = getGps.GetLongitude();
@@ -99,6 +105,8 @@ public class Weather extends AppCompatActivity {
                 df.setWindspeed(Double.valueOf(jDayForecast.getJSONObject("wind").getDouble("speed")));
                 JSONObject jTempObj = jDayForecast.getJSONObject("main");
                 df.setTemperature(jTempObj.getDouble("temp"));
+                df.setTemp_high(jTempObj.getDouble("temp_max"));
+                df.setTemp_low(jTempObj.getDouble("temp_min"));
                 df.setPressure(Double.valueOf(jTempObj.getDouble("pressure")));
                 df.setHumidity(Double.valueOf(jTempObj.getDouble("humidity")));
                 JSONObject jWeatherObj = jDayForecast.getJSONArray("weather").getJSONObject(0);
