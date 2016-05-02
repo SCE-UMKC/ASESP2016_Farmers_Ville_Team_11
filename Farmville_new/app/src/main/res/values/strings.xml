@@ -16,7 +16,7 @@
     <string name="title_activity_mongo">MongoActivity</string>
     <string name="title_activity_news">News</string>
     <string name="title_activity_suggestions">Suggestions</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_login">Farmers Ville</string>
     <string name="title_activity_registration">Registration</string>
     <string name="title_activity_sellers_details">Seller Details</string>
     <string name="title_activity_posts">Posts</string>
