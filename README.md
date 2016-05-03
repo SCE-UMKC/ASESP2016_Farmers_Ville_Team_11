@@ -1,4 +1,4 @@
-# ASE-Project
+# Farmers Ville
 Android App development - Farmers Ville
 This project is done as a part of Advance Software Engineering course.
 
